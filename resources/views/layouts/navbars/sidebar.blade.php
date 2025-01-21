@@ -3,12 +3,12 @@
     Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
 -->
   <div class="logo">
-    <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-      {{ __('CT') }}
-    </a>
-    <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-      {{ __('Creative Tim') }}
-    </a>
+    <p class="simple-text logo-mini">
+        {{ __('Welcome') }}
+    </p>
+    <p class="simple-text logo-normal">
+      {{ __( Auth::user()->name) }}
+    </p>
   </div>
   <div class="sidebar-wrapper" id="sidebar-wrapper">
     <ul class="nav">
@@ -22,7 +22,7 @@
         <a data-toggle="collapse" href="#laravelExamples">
             <i class="fab fa-laravel"></i>
           <p>
-            {{ __("Laravel Examples") }}
+            {{ __("Control") }}
             <b class="caret"></b>
           </p>
         </a>
@@ -70,12 +70,6 @@
         <a href="{{ route('page.index','typography') }}">
           <i class="now-ui-icons text_caps-small"></i>
           <p>{{ __('Typography') }}</p>
-        </a>
-      </li>
-      <li class = "">
-        <a href="{{ route('page.index','upgrade') }}" class="bg-info">
-          <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-          <p>{{ __('Upgrade to PRO') }}</p>
         </a>
       </li>
     </ul>
