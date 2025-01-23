@@ -23,12 +23,16 @@
 
 <body class="{{ $class ?? '' }}">
   <div class="wrapper">
-    @auth
-      @include('layouts.page_template.auth')
-    @endauth
-    @guest
-      @include('layouts.page_template.guest')
-    @endguest
+    @if ($activePage!="login")
+        @auth
+            @include('layouts.page_template.auth')
+        @endauth
+        @guest
+            @include('layouts.page_template.guest')
+        @endguest
+    @else
+        @include('layouts.page_template.guest')
+    @endif
   </div>
   <!--   Core JS Files   -->
   <script src="{{ asset('assets') }}/js/core/jquery.min.js"></script>
