@@ -30,8 +30,8 @@
                 @csrf
             <div class="card card-login card-plain">
                 <div class="card-header ">
-                <div class="logo-container">
-                    <img src="{{ asset('assets/img/now-logo.png') }}" alt="">
+                <div class="logo-container" style="width: 200px; height: auto; ">
+                    <img src="{{ asset('assets/img/msj.png') }}" alt="">
                 </div>
                 </div>
                 <div class="card-body ">

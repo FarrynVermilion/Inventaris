@@ -2,7 +2,12 @@
   <!--
     Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
 -->
+
   <div class="logo">
+    <div class="logo-container" style="width: 100px; height: auto; margin-left: auto;
+  margin-right: auto;">
+        <img src="{{ asset('assets/img/msj.png') }}" alt="">
+    </div>
     <p class="simple-text logo-mini">
         {{ __('Welcome') }}
     </p>
