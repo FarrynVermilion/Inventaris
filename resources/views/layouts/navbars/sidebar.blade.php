@@ -1,11 +1,10 @@
-<div class="sidebar" data-color="green">
+<div class="sidebar" data-color="dark-green">
   <!--
     Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
 -->
 
   <div class="logo">
-    <div class="logo-container" style="width: 100px; height: auto; margin-left: auto;
-  margin-right: auto;">
+    <div class="logo-container" style="width: 100px; height: auto; margin-left: auto;  margin-right: auto;">
         <img src="{{ asset('assets/img/msj.png') }}" alt="">
     </div>
     <p class="simple-text logo-mini">
@@ -47,6 +46,25 @@
             </li>
           </ul>
         </div>
+      <li class="@if ($activePage == 'ruang') active @endif">
+        <a href="{{ route('ruang.index','icons') }}">
+            <i class="now-ui-icons education_atom"></i>
+            <p>{{ __('Ruang') }}</p>
+        </a>
+      </li>
+      <li class="@if ($activePage == 'kategori') active @endif">
+        <a href="{{ route('kategori.index','icons') }}">
+            <i class="now-ui-icons education_atom"></i>
+            <p>{{ __('Kategori') }}</p>
+        </a>
+      </li>
+      <li class="@if ($activePage == 'aset') active @endif">
+        <a href="{{ route('aset.index','icons') }}">
+            <i class="now-ui-icons education_atom"></i>
+            <p>{{ __('Aset') }}</p>
+        </a>
+      </li>
+
       <li class="@if ($activePage == 'icons') active @endif">
         <a href="{{ route('page.index','icons') }}">
           <i class="now-ui-icons education_atom"></i>

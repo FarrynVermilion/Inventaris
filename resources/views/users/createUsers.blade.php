@@ -18,6 +18,7 @@
             <form method="post" action="{{ route('create') }}" autocomplete="off"
             enctype="multipart/form-data">
               @csrf
+              @include('alerts.errors')
               @include('alerts.success')
               <div class="row">
               </div>

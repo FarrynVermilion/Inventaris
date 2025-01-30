@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ruang;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RuangController extends Controller
 {
@@ -11,7 +13,17 @@ class RuangController extends Controller
      */
     public function index()
     {
-        //
+        return view('ruang.index', [
+            'Ruang' => DB::table('Ruang')->paginate(15)
+        ]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        return view('ruang.create');
     }
 
     /**
@@ -19,30 +31,59 @@ class RuangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'Nama' => 'required',
+            'Lokasi' => 'required',
+        ]);
+        $val = Array(
+            'Nm_ruang'=>$request->Nama,
+            'Lokasi'=>$request->Lokasi
+        );
+        Ruang::create($val);
+        return redirect()->route('ruang.index')->with('success', 'Ruang created successfully.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Ruang $ruang)
     {
         //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Ruang $ruang)
+    {
+        $edit = Ruang::find($ruang->Ruang_id);
+        return view ('ruang.edit', compact('edit'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Ruang $ruang)
     {
-        //
+        $request->validate([
+            'nama' => 'required',
+            'Lokasi' => 'required',
+        ]);
+        $val = Array(
+            'Nm_ruang'=>$request->nama,
+            'Lokasi'=>$request->Lokasi
+        );
+        $ruangan = Ruang::find($ruang->Ruang_id);
+        $ruangan->update($val);
+        return redirect()->route('ruang.index')->with('success', 'Ruangan updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Ruang $ruang)
     {
-        //
+        $ruang->delete();
+        return redirect()->route('ruang.index')->with('success', 'Ruang deleted successfully');
     }
 }

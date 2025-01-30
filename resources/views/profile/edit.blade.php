@@ -16,11 +16,12 @@
             <h5 class="title">{{__(" Edit Profile")}}</h5>
           </div>
           <div class="card-body">
-            <form method="post" action="{{ route('profile.update') }}" autocomplete="off"
-            enctype="multipart/form-data">
+            <form method="post" action="{{ route('profile.update') }}" autocomplete="off" enctype="multipart/form-data">
               @csrf
-              @method('put')
+              @include('alerts.errors')
+              @include('alerts.success')@include('alerts.errors')
               @include('alerts.success')
+              @method('put')
               <div class="row">
               </div>
                 <div class="row">

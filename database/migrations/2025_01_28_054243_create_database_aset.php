@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('Aset', function (Blueprint $table) {
-            $table->string("Aset id")->primary();
+            $table->string("Aset_id")->primary();
             $table->string("Nama_Aset");
             $table->string("Merek_Aset");
             $table->string("Tipe");
@@ -31,11 +31,11 @@ return new class extends Migration
             $table->integer("Ruang_id");
         });
         Schema::create('Kategori', function (Blueprint $table) {
-            $table->integerIncrements("Kategori id")->primary();
+            $table->integerIncrements("Kategori_id")->primary();
             $table->string("Nama_kategori");
         });
         Schema::create('Ruang', function (Blueprint $table) {
-            $table->integerIncrements("Ruang id")->primary();
+            $table->integerIncrements("Ruang_id")->primary();
             $table->string("Nm_ruang");
             $table->string("Lokasi");
         });

@@ -1,8 +1,9 @@
 @extends('layouts.app', [
     'class' => 'sidebar-mini ',
-    'namePage' => 'users',
-    'activePage' => 'users'
+    'namePage' => 'aset',
+    'activePage' => 'aset'
 ])
+
 @section('content')
 <div class="panel-header panel-header-sm">
 </div>
@@ -10,10 +11,12 @@
     <div class="row">
       <div class="col-md-12">
         <div class="card">
+            @include('alerts/errors')
           <div class="card-header">
               <a class="btn btn-primary btn-round text-white pull-right" href="{{ route('register') }}">Add user</a>
             <h4 class="card-title">Users</h4>
-            <div class="col-12 mt-2"></div>
+            <div class="col-12 mt-2">
+                                        </div>
           </div>
           <div class="card-body">
             <div class="toolbar">
