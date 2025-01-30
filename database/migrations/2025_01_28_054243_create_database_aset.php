@@ -27,15 +27,15 @@ return new class extends Migration
             $table->string("Stok");
             $table->string("Status_aset");
             $table->string("COA");
-            $table->string("Kategori_id");
-            $table->string("Ruang_id");
+            $table->integer("Kategori_id");
+            $table->integer("Ruang_id");
         });
         Schema::create('Kategori', function (Blueprint $table) {
-            $table->string("Kategori id")->primary();
+            $table->integerIncrements("Kategori id")->primary();
             $table->string("Nama_kategori");
         });
         Schema::create('Ruang', function (Blueprint $table) {
-            $table->string("Ruang id")->primary();
+            $table->integerIncrements("Ruang id")->primary();
             $table->string("Nm_ruang");
             $table->string("Lokasi");
         });

@@ -14,7 +14,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('Penyusutan', function (Blueprint $table) {
-            $table->string("Penyusutan_id")->primary();
+            $table->increments("Penyusutan_id")->primary();
             $table->date("Tgl_penyusutan");
             $table->Integer("Residu");
             $table->Integer("Nilai_susut");

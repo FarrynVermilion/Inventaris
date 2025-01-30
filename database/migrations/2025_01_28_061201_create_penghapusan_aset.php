@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('Penghapusan_aset', function (Blueprint $table) {
-            $table->string("penghapusan_id")->primary();
+            $table->integerIncrements("penghapusan_id")->primary();
             $table->date("Tgl_penghapusan");
             $table->string("Status_penghapusan");
             $table->integer("Jml_dihapus");
@@ -20,17 +20,17 @@ return new class extends Migration
             $table->string("Aset_id");
         });
         Schema::create('Jual_aset', function (Blueprint $table) {
-            $table->string("penjualan_id")->primary();
+            $table->integerIncrements("penjualan_id")->primary();
             $table->date("Tgl_jual");
             $table->integer("Harga_jual");
             $table->string("Deskripsi");
-            $table->string("penghapusain_id");
+            $table->integer("penghapusain_id");
         });
         Schema::create('aset_dihanguskan', function (Blueprint $table) {
-            $table->string("dihanguskan_id")->primary();
+            $table->integerIncrements("dihanguskan_id")->primary();
             $table->date("Tgl_dihanguskan");
             $table->string("Deskripsi");
-            $table->string("penghapuskan_id");
+            $table->integer("penghapuskan_id");
         });
     }
 
