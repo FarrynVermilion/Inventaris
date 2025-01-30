@@ -24,6 +24,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('ruang', RuangController::class);
     Route::resource('kategori', KategoriController::class);
     Route::resource('aset', AsetController::class);
+
     Route::get('{page}', ['as' => 'page.index', 'uses' => 'App\Http\Controllers\PageController@index']);
 });
 

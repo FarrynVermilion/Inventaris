@@ -11,8 +11,8 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-              <a class="btn btn-primary btn-round text-white pull-right" href="{{ route('kategori.create') }}">Add ruangan</a>
-            <h4 class="card-title">Ruangan</h4>
+              <a class="btn btn-primary btn-round text-white pull-right" href="{{ route('kategori.create') }}">Add kategori</a>
+            <h4 class="card-title">Kategori</h4>
             <div class="col-12 mt-2"></div>
           </div>
           <div class="card-body">

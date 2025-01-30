@@ -18,13 +18,13 @@ return new class extends Migration
             $table->string("Tipe");
             $table->string("Model");
             $table->string("Seri");
-            $table->integer("Harga_beli");
+            $table->bigInteger("Harga_beli");
             $table->date("Tgl_perolehan");
             $table->date("Tgl_akhir_garansi");
             $table->string("Spesifikasi");
             $table->string("Kondisi_awal");
             $table->integer("Jml_aset");
-            $table->string("Stok");
+            $table->integer("Stok");
             $table->string("Status_aset");
             $table->string("COA");
             $table->integer("Kategori_id");
