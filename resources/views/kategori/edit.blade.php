@@ -1,7 +1,7 @@
 @extends('layouts.app', [
     'class' => 'sidebar-mini ',
-    'namePage' => 'Edit Ruang',
-    'activePage' => 'ruang',
+    'namePage' => 'Edit Kategori',
+    'activePage' => 'kategori',
     'activeNav' => '',
 ])
 @section('content')
@@ -11,10 +11,10 @@
       <div class="col-md-8">
         <div class="card">
           <div class="card-header">
-            <h5 class="title">{{__(" Edit Ruang")}}</h5>
+            <h5 class="title">{{__(" Edit Kategori")}}</h5>
           </div>
           <div class="card-body">
-            <form method="post" action="{{ route('ruang.update',$edit->Ruang_id) }}" autocomplete="off" enctype="multipart/form-data">
+            <form method="post" action="{{ route('kategori.update',$edit->Kategori_id) }}" autocomplete="off" enctype="multipart/form-data">
               @csrf
               @include('alerts.errors')
               @include('alerts.success')
@@ -25,19 +25,10 @@
                     <div class="col-md-7 pr-1">
                         <div class="form-group">
                             <label>{{__(" Nama")}}</label>
-                            <input type="text" name="nama" class="form-control" value="{{ old('nama', $edit->Nm_ruang) }}">
+                            <input type="text" name="nama" class="form-control" value="{{ old('nama', $edit->Nama_kategori) }}">
                             @include('alerts.feedback', ['field' => 'nama'])
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-7 pr-1">
-                    <div class="form-group">
-                      <label>{{__(" Lokasi")}}</label>
-                      <input type="text" name="Lokasi" class="form-control" placeholder="Lokasi" value="{{ old('Lokasi', $edit->Lokasi) }}">
-                      @include('alerts.feedback', ['field' => 'Lokasi'])
-                    </div>
-                  </div>
                 </div>
               <div class="card-footer ">
                 <button type="submit" class="btn btn-primary btn-round">{{__('Save')}}</button>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kategori;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class KategoriController extends Controller
 {
@@ -12,7 +13,9 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        //
+        return view('kategori.index', [
+            'Kategori' => DB::table('Kategori')->paginate(15)
+        ]);
     }
 
     /**
@@ -20,7 +23,7 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        //
+        return view('kategori.create');
     }
 
     /**
@@ -28,7 +31,14 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'Nama' => 'required',
+        ]);
+        $val = Array(
+            'Nama_kategori'=>$request->Nama,
+        );
+        Kategori::create($val);
+        return redirect()->route('kategori.index')->with('success', 'Kategori created successfully.');
     }
 
     /**
@@ -44,7 +54,8 @@ class KategoriController extends Controller
      */
     public function edit(Kategori $kategori)
     {
-        //
+        $edit = Kategori::find($kategori->Kategori_id);
+        return view ('kategori.edit', compact('edit'));
     }
 
     /**
@@ -52,7 +63,15 @@ class KategoriController extends Controller
      */
     public function update(Request $request, Kategori $kategori)
     {
-        //
+        $request->validate([
+            'nama' => 'required',
+        ]);
+        $val = Array(
+            'Nama_kategori'=>$request->nama
+        );
+        $kategorian = Kategori::find($kategori->Kategori_id);
+        $kategorian->update($val);
+        return redirect()->route('kategori.index')->with('success', 'Kategori updated successfully.');
     }
 
     /**
@@ -60,6 +79,7 @@ class KategoriController extends Controller
      */
     public function destroy(Kategori $kategori)
     {
-        //
+        $kategori->delete();
+        return redirect()->route('kategori.index')->with('success', 'Kategori deleted successfully');
     }
 }

@@ -10,7 +10,7 @@ class Kategori extends Model
     protected $primaryKey = 'Kategori_id';
     public $timestamps = false;
     protected $fillable = [
-        'Nm_kategori'
+        'Nama_kategori'
     ];
 
     public function aset()

@@ -3,7 +3,6 @@
     'namePage' => 'kategori',
     'activePage' => 'kategori'
 ])
-
 @section('content')
 <div class="panel-header panel-header-sm">
 </div>
@@ -11,12 +10,10 @@
     <div class="row">
       <div class="col-md-12">
         <div class="card">
-            @include('alerts/errors')
           <div class="card-header">
-              <a class="btn btn-primary btn-round text-white pull-right" href="{{ route('register') }}">Add user</a>
-            <h4 class="card-title">Users</h4>
-            <div class="col-12 mt-2">
-                                        </div>
+              <a class="btn btn-primary btn-round text-white pull-right" href="{{ route('kategori.create') }}">Add ruangan</a>
+            <h4 class="card-title">Ruangan</h4>
+            <div class="col-12 mt-2"></div>
           </div>
           <div class="card-body">
             <div class="toolbar">
@@ -28,30 +25,40 @@
             <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
               <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Creation date</th>
+                  <th>ID</th>
+                  <th>Nama</th>
                   <th class="disabled-sorting text-left">Actions</th>
                 </tr>
               </thead>
               <tbody>
-                @foreach ( $users as $user)
+                @foreach ( $Kategori as $k)
                     <tr>
                         <td>
-                            {{$user->name}}
+                            {{$k->Kategori_id}}
                         </td>
                         <td>
-                            {{$user->email}}
+                            {{$k->Nama_kategori}}
                         </td>
                         <td>
-                            {{$user->created_at}}
-                        </td>
-                        <td>
-                            <form method="POST" action="{{route('user.destroy',$user->id)}}" onsubmit="return hapus()">
-                                @csrf
-                                <input name="_method" type="hidden" value="DELETE">
-                                <button type="submit" class="btn btn-danger">Hapus</button>
-                            </form>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <form method="GET" action="{{route('kategori.edit',$k->Kategori_id)}}">
+                                            @csrf
+                                            <button type="submit" class="btn btn-warning">Edit</button>
+                                        </form>
+                                    </td>
+                                </th>
+                                <th>
+                                    <td>
+                                        <form method="POST" action="{{route('kategori.destroy',$k->Kategori_id)}}" onsubmit="return hapus()">
+                                            @csrf
+                                            <input name="_method" type="hidden" value="DELETE">
+                                            <button type="submit" class="btn btn-danger">Hapus</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            </table>
                         </td>
                     </tr>
                 @endforeach

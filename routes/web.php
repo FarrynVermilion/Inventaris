@@ -22,8 +22,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
     Route::resource('ruang', RuangController::class);
-    Route::resource('aset', AsetController::class);
     Route::resource('kategori', KategoriController::class);
+    Route::resource('aset', AsetController::class);
     Route::get('{page}', ['as' => 'page.index', 'uses' => 'App\Http\Controllers\PageController@index']);
 });
 
