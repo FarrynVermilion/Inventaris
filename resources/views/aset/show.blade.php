@@ -143,7 +143,7 @@
                 </div>
                 <div class="col-md-7 pr-1">
                     <div class="form-group">
-                        <a href="{{ route('aset.index') }}" class="btn btn-primary">{{__('Kembali')}}</a>
+                        <a href="{{ url()->previous() }}" class="btn btn-primary">{{__('Kembali')}}</a>
                     </div>
                 </div>
             </div>

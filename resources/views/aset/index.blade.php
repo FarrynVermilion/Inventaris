@@ -76,24 +76,24 @@
                                     </form>
                                 </td>
                                 <td>
-                                    <form method="POST" action="{{route('aset.destroy',$a->Aset_id)}}" onsubmit="return hapus()">
+                                    <form method="POST" action="{{route('aset.jual',$a->Aset_id)}}" onsubmit="return hapus()">
                                         @csrf
                                         <input name="_method" type="hidden" value="DELETE">
-                                        <button type="submit" class="btn btn-danger" style="width: 12em;">Hapus data</button>
+                                        <button type="submit" class="btn btn-danger" style="width: 12em;">Jual aset</button>
                                     </form>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <form method="GET" action="{{route('aset.show',$a->Aset_id)}}">
+                                    <form method="POST" action="{{route('aset.susut',$a->Aset_id)}}">
                                         @csrf
-                                        <button type="submit" class="btn btn-info" style="width: 12em;">Tambah data</button>
+                                        <button type="submit" class="btn btn-warning" style="width: 12em;">Susut data</button>
                                     </form>
                                 </td>
                                 <td>
-                                    <form method="POST" action="{{route('aset.edit',$a->Aset_id)}}">
+                                    <form method="POST" action="{{route('aset.musnah',$a->Aset_id)}}" onsubmit="return hapus()">
                                         @csrf
-                                        <button type="submit" class="btn btn-warning" style="width: 12em;">Susut data</button>
+                                        <button type="submit" class="btn btn-danger" style="width: 12em;">Musnah aset</button>
                                     </form>
                                 </td>
                             </tr>

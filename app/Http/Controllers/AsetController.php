@@ -51,13 +51,13 @@ class AsetController extends Controller
             'Tipe'=>'required|max:255',
             'Model'=>'required|max:255',
             'Seri'=>'required|max:255',
-            'Harga_beli'=>'required|max_digits:20',
+            'Harga_beli'=>'required|min:0|max_digits:20',
             'Tgl_perolehan'=>'required',
             'Tgl_akhir_garansi'=>'required|after_or_equal:Tgl_perolehan',
             'Spesifikasi'=>'required',
             'Kondisi_awal'=>'required',
-            'Jml_aset'=>'required',
-            'Stok'=>'required',
+            'Jml_aset'=>'required|min:0',
+            'Stok'=>'required|min:0',
             'Status_aset'=>'required|max:255',
             'COA'=>'required|max:255',
             'Kategori_id'=>'required',
@@ -132,7 +132,7 @@ class AsetController extends Controller
             'Tipe'=>'required|max:255',
             'Model'=>'required|max:255',
             'Seri'=>'required|max:255',
-            'Harga_beli'=>'required|max_digits:20',
+            'Harga_beli'=>'required|min:0|max_digits:20',
             'Tgl_perolehan'=>'required',
             'Tgl_akhir_garansi'=>'required|after_or_equal:Tgl_perolehan',
             'Spesifikasi'=>'required',
@@ -191,6 +191,23 @@ class AsetController extends Controller
         Penyusutan::create($val);
         return redirect()->route('aset.index')->with('success', "Penyusutan created successfully.");
     }
+    public function jual(Request $request)
+    {
+        $request->validate([
+            'Aset_id'=>'required',
+            'Tgl_jual'=>'required',
+            'Harga_jual'=>'required',
+            'Keterangan'=>'required'
+        ]);
+        $val = Array(
+            'Aset_id'=>$request->Aset_id,
+            'Tgl_jual'=>$request->Tgl_jual,
+            'Harga_jual'=>$request->Harga_jual,
+            'Keterangan'=>$request->Keterangan
+        );
+        Jual_aset::create($val);
+        return redirect()->route('aset.index')->with('success', "Penjualan created successfully.");
+    }
     public function hapus(Request $request)
     {
         $request->validate([
@@ -217,5 +234,20 @@ class AsetController extends Controller
         $aset->Stok += $request->Jml_aset;
         $aset->save();
         return redirect()->route('aset.index')->with('success', "Aset added successfully.");
+    }
+    public function maintenance(Request $request)
+    {
+        $request->validate([
+            'Aset_id'=>'required',
+            'Tgl_maintenance'=>'required',
+            'Keterangan'=>'required'
+        ]);
+        $val = Array(
+            'Aset_id'=>$request->Aset_id,
+            'Tgl_maintenance'=>$request->Tgl_maintenance,
+            'Keterangan'=>$request->Keterangan
+        );
+        Maintenance::create($val);
+        return redirect()->route('aset.index')->with('success', "Maintenance created successfully.");
     }
 }

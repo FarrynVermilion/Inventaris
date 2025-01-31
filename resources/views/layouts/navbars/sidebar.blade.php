@@ -64,6 +64,12 @@
             <p>{{ __('Aset') }}</p>
         </a>
       </li>
+      <li class="@if ($activePage == 'maintenance') active @endif">
+        <a href="{{ route('maintenance.index','icons') }}">
+            <i class="now-ui-icons education_atom"></i>
+            <p>{{ __('Maintenance') }}</p>
+        </a>
+      </li>
 
       <li class="@if ($activePage == 'icons') active @endif">
         <a href="{{ route('page.index','icons') }}">
