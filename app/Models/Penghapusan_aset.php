@@ -7,11 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Penghapusan_aset extends Model
 {
     protected $table = 'Penghapusan_aset';
-    protected $primaryKey = 'Penghapusan_id';
+    protected $primaryKey = 'penghapusan_id';
     public $timestamps = false;
     protected $fillable = [
         'Tgl_penghapusan',
-        'Keterangan',
+        'Status_penghapusan',
+        'Jml_dihapus',
+        'Upload_File',
         'Aset_id'
     ];
 

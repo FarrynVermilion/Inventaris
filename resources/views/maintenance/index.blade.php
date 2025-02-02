@@ -60,8 +60,8 @@
                             @if ($m->Aset_id == $a->Aset_id)
                                 <td>
                                     {{$a->Nama_Aset}}
+                                    @break
                                 </td>
-                                @break
                             @endif
                         @endforeach
                         <td>

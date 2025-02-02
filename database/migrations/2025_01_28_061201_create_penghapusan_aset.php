@@ -30,7 +30,7 @@ return new class extends Migration
             $table->integerIncrements("dihanguskan_id")->primary();
             $table->date("Tgl_dihanguskan");
             $table->string("Deskripsi");
-            $table->integer("penghapuskan_id");
+            $table->integer("penghapusan_id");
         });
     }
 

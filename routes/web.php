@@ -6,7 +6,7 @@ use App\Http\Controllers\RuangController;
 use App\Http\Controllers\AsetController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\MaintenanceController;
-use App\Models\Maintenance;
+use App\Http\Controllers\AsetDihanguskanController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,6 +26,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('kategori', KategoriController::class);
     Route::resource('aset', AsetController::class);
     Route::resource('maintenance', MaintenanceController::class);
+    Route::resource('asetDihanguskan', AsetDihanguskanController::class);
+    Route::get('download/{file}', [AsetDihanguskanController::class,'download'])->name('download');
     Route::get('aset.jual', [AsetController::class,'jual'])->name('aset.jual');
     Route::get('aset.susut', [AsetController::class,'susut'])->name('aset.susut');
     Route::get('aset.musnah', [AsetController::class,'musnah'])->name('aset.musnah');

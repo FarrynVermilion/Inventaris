@@ -47,6 +47,9 @@ class MaintenanceController extends Controller
         $maintenance->Biaya = $request->Biaya;
         $maintenance->Nm_teknisi = $request->Nm_teknisi;
         $maintenance->save();
+        $aset = Aset::find($request->Aset_id);
+        // $aset->Stok=$aset->Stok-$maintenance->jumlah;
+        // $aset->save;
         return redirect()->route('maintenance.index')->with('success','Maintenance berhasil ditambahkan');
     }
 

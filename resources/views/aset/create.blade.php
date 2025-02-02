@@ -102,13 +102,6 @@
                     </div>
                     <div class="col-md-7 pr-1">
                         <div class="form-group">
-                            <label>{{__(" Stok")}}</label>
-                            <input type="number" name="Stok" class="form-control {{ $errors->has('Stok') ? ' is-invalid' : '' }}" placeholder="Jumlah Stok" value="{{ old('Stok') }}">
-                            @include('alerts.feedback', ['field' => 'Stok'])
-                        </div>
-                    </div>
-                    <div class="col-md-7 pr-1">
-                        <div class="form-group">
                             <label>{{__(" Status aset")}}</label>
                             <input type="text" name="Status_aset" class="form-control {{ $errors->has('Status_aset') ? ' is-invalid' : '' }}" placeholder="Status_aset" value="{{ old('Status_aset') }}">
                             @include('alerts.feedback', ['field' => 'Status_aset'])

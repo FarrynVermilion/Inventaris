@@ -16,60 +16,100 @@
   </div>
   <div class="sidebar-wrapper" id="sidebar-wrapper">
     <ul class="nav">
+      <hr class="sidebar-divider my-2" style="width:90% ;border: 1px solid white !important; opacity: 35%;margin-right: 0px;">
+
       <li class="@if ($activePage == 'home') active @endif">
         <a href="{{ route('home') }}">
           <i class="now-ui-icons design_app"></i>
           <p>{{ __('Dashboard') }}</p>
         </a>
       </li>
+      <hr class="sidebar-divider my-2" style="width:90% ;border: 1px solid white !important; opacity: 35%;margin-right: 0px;">
       <li>
-        <a data-toggle="collapse" href="#laravelExamples">
+        <a data-toggle="collapse" href="#User_management">
             <i class="fab fa-laravel"></i>
-          <p>
-            {{ __("Control") }}
-            <b class="caret"></b>
-          </p>
+            <p>
+                {{ __("Control") }}
+                <b class="caret"></b>
+            </p>
         </a>
-        <div class="collapse show" id="laravelExamples">
-          <ul class="nav">
-            <li class="@if ($activePage == 'profile') active @endif">
-              <a href="{{ route('profile.edit') }}">
-                <i class="now-ui-icons users_single-02"></i>
-                <p> {{ __("User Profile") }} </p>
-              </a>
-            </li>
-            <li class="@if ($activePage == 'users') active @endif">
-              <a href="{{ route('user.index') }}">
-                <i class="now-ui-icons design_bullet-list-67"></i>
-                <p> {{ __("User Management") }} </p>
-              </a>
-            </li>
-          </ul>
+        <div class="collapse show" id="User_management">
+            <ul class="nav">
+                <li class="@if ($activePage == 'profile') active @endif">
+                    <a href="{{ route('profile.edit') }}">
+                        <i class="now-ui-icons users_single-02"></i>
+                        <p> {{ __("User Profile") }} </p>
+                    </a>
+                </li>
+                <li class="@if ($activePage == 'users') active @endif">
+                    <a href="{{ route('user.index') }}">
+                        <i class="now-ui-icons design_bullet-list-67"></i>
+                        <p> {{ __("User Management") }} </p>
+                    </a>
+                </li>
+            </ul>
         </div>
-      <li class="@if ($activePage == 'ruang') active @endif">
-        <a href="{{ route('ruang.index','icons') }}">
-            <i class="now-ui-icons education_atom"></i>
-            <p>{{ __('Ruang') }}</p>
-        </a>
       </li>
-      <li class="@if ($activePage == 'kategori') active @endif">
-        <a href="{{ route('kategori.index','icons') }}">
-            <i class="now-ui-icons education_atom"></i>
-            <p>{{ __('Kategori') }}</p>
+      <hr class="sidebar-divider my-2" style="width:90% ;border: 1px solid white !important; opacity: 35%;margin-right: 0px;">
+      <li>
+        <a data-toggle="collapse" href="#Master">
+            <i class="fab fa-laravel"></i>
+            <p>
+                {{ __("Master") }}
+                <b class="caret"></b>
+            </p>
         </a>
+        <div class="collapse show" id="Master">
+            <ul class="nav">
+                <li class="@if ($activePage == 'ruang') active @endif">
+                    <a href="{{ route('ruang.index','icons') }}">
+                        <i class="now-ui-icons education_atom"></i>
+                        <p>{{ __('Ruang') }}</p>
+                    </a>
+                  </li>
+                  <li class="@if ($activePage == 'kategori') active @endif">
+                    <a href="{{ route('kategori.index','icons') }}">
+                        <i class="now-ui-icons education_atom"></i>
+                        <p>{{ __('Kategori') }}</p>
+                    </a>
+                  </li>
+                  <li class="@if ($activePage == 'aset') active @endif">
+                    <a href="{{ route('aset.index','icons') }}">
+                        <i class="now-ui-icons education_atom"></i>
+                        <p>{{ __('Aset') }}</p>
+                    </a>
+                  </li>
+            </ul>
+        </div>
       </li>
-      <li class="@if ($activePage == 'aset') active @endif">
-        <a href="{{ route('aset.index','icons') }}">
-            <i class="now-ui-icons education_atom"></i>
-            <p>{{ __('Aset') }}</p>
+      <hr class="sidebar-divider my-2" style="width:90% ;border: 1px solid white !important; opacity: 35%;margin-right: 0px;">
+      <li>
+        <a data-toggle="collapse" href="#Aset_management">
+            <i class="fab fa-laravel"></i>
+            <p>
+                {{ __("Aset management") }}
+                <b class="caret"></b>
+            </p>
         </a>
+        <div class="collapse show" id="Aset_management">
+            <ul class="nav">
+                <li class="@if ($activePage == 'maintenance') active @endif">
+                    <a href="{{ route('maintenance.index','icons') }}">
+                        <i class="now-ui-icons education_atom"></i>
+                        <p>{{ __('Maintenance') }}</p>
+                    </a>
+                  </li>
+                  <li class="@if ($activePage == 'asetDihanguskan') active @endif">
+                    <a href="{{ route('asetDihanguskan.index','icons') }}">
+                        <i class="now-ui-icons education_atom"></i>
+                        <p>{{ __('Penghangusan aset') }}</p>
+                    </a>
+                  </li>
+            </ul>
+        </div>
       </li>
-      <li class="@if ($activePage == 'maintenance') active @endif">
-        <a href="{{ route('maintenance.index','icons') }}">
-            <i class="now-ui-icons education_atom"></i>
-            <p>{{ __('Maintenance') }}</p>
-        </a>
-      </li>
+
+      <hr class="sidebar-divider my-2" style="width:90% ;border: 1px solid white !important; opacity: 35%;margin-right: 0px;">
 
       <li class="@if ($activePage == 'icons') active @endif">
         <a href="{{ route('page.index','icons') }}">
@@ -93,12 +133,6 @@
         <a href="{{ route('page.index','table') }}">
           <i class="now-ui-icons design_bullet-list-67"></i>
           <p>{{ __('Table List') }}</p>
-        </a>
-      </li>
-      <li class = "@if ($activePage == 'typography') active @endif">
-        <a href="{{ route('page.index','typography') }}">
-          <i class="now-ui-icons text_caps-small"></i>
-          <p>{{ __('Typography') }}</p>
         </a>
       </li>
     </ul>

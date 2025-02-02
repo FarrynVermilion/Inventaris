@@ -1,7 +1,7 @@
 @extends('layouts.app', [
     'class' => 'sidebar-mini ',
     'namePage' => 'create maintenance',
-    'activePage' => 'aset'
+    'activePage' => 'maintenance'
 ])
 @section('content')
 <div class="panel-header panel-header-sm">
@@ -27,7 +27,14 @@
                             <select name="Aset_id" class="form-control {{ $errors->has('Aset_id') ? ' is-invalid' : '' }}">
                                 @foreach ($aset as $a)
                                     @if ($a->Stok != 0)
-                                        <option value="{{$a->Aset_id}}" {{old('Aset_id') == $a->Aset_id ? 'selected' : ''}}>Barang : {{$a->Nama_Aset}} | Merek : {{$a->Merek_Aset}} | Tipe : {{$a->Tipe}} | Model : {{$a->Model}} | Seri : {{$a->Seri}} | Stok : {{$a->Stok}}</option>
+                                        <option value="{{$a->Aset_id}}" {{old('Aset_id') == $a->Aset_id ? 'selected' : ''}}>
+                                            Barang : {{$a->Nama_Aset}} |
+                                            Merek : {{$a->Merek_Aset}} |
+                                            Tipe : {{$a->Tipe}} |
+                                            Model : {{$a->Model}} |
+                                            Seri : {{$a->Seri}} |
+                                            Stok : {{$a->Stok}}
+                                        </option>
                                     @endif
                                 @endforeach
                             </select>

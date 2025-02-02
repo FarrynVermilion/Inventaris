@@ -57,7 +57,6 @@ class AsetController extends Controller
             'Spesifikasi'=>'required',
             'Kondisi_awal'=>'required',
             'Jml_aset'=>'required|min:0',
-            'Stok'=>'required|min:0',
             'Status_aset'=>'required|max:255',
             'COA'=>'required|max:255',
             'Kategori_id'=>'required',
@@ -82,7 +81,7 @@ class AsetController extends Controller
             'Spesifikasi'=>$request->Spesifikasi,
             'Kondisi_awal'=>$request->Kondisi_awal,
             'Jml_aset'=>$request->Jml_aset,
-            'Stok'=>$request->Stok,
+            'Stok'=>$request->Jml_aset,
             'Status_aset'=>$request->Status_aset,
             'COA'=>$request->COA,
             'Kategori_id'=>$request->Kategori_id,
@@ -142,7 +141,7 @@ class AsetController extends Controller
             'Kategori_id'=>'required',
             'Ruang_id'=>'required'
         ]);
-        $num=substr($aset->Asey_id, 0, 3);
+        $num=substr($aset->Aset_id, 0, 3);
         $kat=str_pad($request->Kategori_id%100, 2, '0', STR_PAD_LEFT);
         $lok=str_pad($request->Ruang_id%100, 2, '0', STR_PAD_LEFT);
         $m=date('m',strtotime($request->Tgl_perolehan));
@@ -175,79 +174,5 @@ class AsetController extends Controller
     public function destroy(Aset $aset)
     {
         //
-    }
-    public function susut(Request $request)
-    {
-        $request->validate([
-            'Aset_id'=>'required',
-            'Tgl_susut'=>'required',
-            'Nilai_susut'=>'required'
-        ]);
-        $val = Array(
-            'Aset_id'=>$request->Aset_id,
-            'Tgl_susut'=>$request->Tgl_susut,
-            'Nilai_susut'=>$request->Nilai_susut
-        );
-        Penyusutan::create($val);
-        return redirect()->route('aset.index')->with('success', "Penyusutan created successfully.");
-    }
-    public function jual(Request $request)
-    {
-        $request->validate([
-            'Aset_id'=>'required',
-            'Tgl_jual'=>'required',
-            'Harga_jual'=>'required',
-            'Keterangan'=>'required'
-        ]);
-        $val = Array(
-            'Aset_id'=>$request->Aset_id,
-            'Tgl_jual'=>$request->Tgl_jual,
-            'Harga_jual'=>$request->Harga_jual,
-            'Keterangan'=>$request->Keterangan
-        );
-        Jual_aset::create($val);
-        return redirect()->route('aset.index')->with('success', "Penjualan created successfully.");
-    }
-    public function hapus(Request $request)
-    {
-        $request->validate([
-            'Aset_id'=>'required',
-            'Tgl_hapus'=>'required',
-            'Alasan_hapus'=>'required'
-        ]);
-        $val = Array(
-            'Aset_id'=>$request->Aset_id,
-            'Tgl_hapus'=>$request->Tgl_hapus,
-            'Alasan_hapus'=>$request->Alasan_hapus
-        );
-        Penghapusan_aset::create($val);
-        return redirect()->route('aset.index')->with('success', "Penghapusan created successfully.");
-    }
-    public function tambah(Request $request)
-    {
-        $request->validate([
-            'Aset_id'=>'required',
-            'Jml_aset'=>'required'
-        ]);
-        $aset = Aset::where('Aset_id', $request->Aset_id)->first();
-        $aset->Jml_aset += $request->Jml_aset;
-        $aset->Stok += $request->Jml_aset;
-        $aset->save();
-        return redirect()->route('aset.index')->with('success', "Aset added successfully.");
-    }
-    public function maintenance(Request $request)
-    {
-        $request->validate([
-            'Aset_id'=>'required',
-            'Tgl_maintenance'=>'required',
-            'Keterangan'=>'required'
-        ]);
-        $val = Array(
-            'Aset_id'=>$request->Aset_id,
-            'Tgl_maintenance'=>$request->Tgl_maintenance,
-            'Keterangan'=>$request->Keterangan
-        );
-        Maintenance::create($val);
-        return redirect()->route('aset.index')->with('success', "Maintenance created successfully.");
     }
 }

@@ -29,6 +29,7 @@
                   <th>ID</th>
                   <th>Nama Aset</th>
                   <th>Jumlah aset</th>
+                  <th>Stok</th>
                   <th>Kategori</th>
                   <th>Ruang</th>
                   <th class="disabled-sorting text-left">Actions</th>
@@ -36,6 +37,7 @@
               </thead>
               <tbody>
                 @foreach ( $Aset as $a)
+                    @if ($a->Stok != 0)
                     <tr>
                         <td>
                             {{$a->Aset_id}}
@@ -47,59 +49,45 @@
                             {{$a->Jml_aset}}
                         </td>
                         <td>
+                            {{$a->Stok}}
+                        </td>
+                        <td>
                             @foreach ($Kategori as $k)
                                 @if ($a->Kategori_id == $k->Kategori_id)
                                     {{$k->Nama_kategori}}
+                                    @break
                                 @endif
+
                             @endforeach
                         </td>
                         <td>
                             @foreach ($Ruang as $r)
                                 @if ($a->Ruang_id == $r->Ruang_id)
                                     {{$r->Nm_ruang}}
+                                    @break
                                 @endif
                             @endforeach
                         </td>
                         <td>
-                          <table>
-                            <tr>
-                                <td>
-                                    <form method="GET" action="{{route('aset.show',$a->Aset_id)}}">
-                                        @csrf
-                                        <button type="submit" class="btn btn-info" style="width: 12em;">Detail data</button>
-                                    </form>
-                                </td>
-                                <td>
-                                    <form method="GET" action="{{route('aset.edit',$a->Aset_id)}}">
-                                        @csrf
-                                        <button type="submit" class="btn btn-warning" style="width: 12em;">Edit data</button>
-                                    </form>
-                                </td>
-                                <td>
-                                    <form method="POST" action="{{route('aset.jual',$a->Aset_id)}}" onsubmit="return hapus()">
-                                        @csrf
-                                        <input name="_method" type="hidden" value="DELETE">
-                                        <button type="submit" class="btn btn-danger" style="width: 12em;">Jual aset</button>
-                                    </form>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <form method="POST" action="{{route('aset.susut',$a->Aset_id)}}">
-                                        @csrf
-                                        <button type="submit" class="btn btn-warning" style="width: 12em;">Susut data</button>
-                                    </form>
-                                </td>
-                                <td>
-                                    <form method="POST" action="{{route('aset.musnah',$a->Aset_id)}}" onsubmit="return hapus()">
-                                        @csrf
-                                        <button type="submit" class="btn btn-danger" style="width: 12em;">Musnah aset</button>
-                                    </form>
-                                </td>
-                            </tr>
-                          </table>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <form method="GET" action="{{route('aset.show',$a->Aset_id)}}">
+                                            @csrf
+                                            <button type="submit" class="btn btn-info" style="width: 12em;">Detail data</button>
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form method="GET" action="{{route('aset.edit',$a->Aset_id)}}">
+                                            @csrf
+                                            <button type="submit" class="btn btn-warning" style="width: 12em;">Edit data</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            </table>
                         </td>
                     </tr>
+                    @endif
                 @endforeach
               </tbody>
             </table>
