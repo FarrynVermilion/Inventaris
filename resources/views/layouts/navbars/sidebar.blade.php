@@ -167,6 +167,12 @@
           <p>{{ __('Table List') }}</p>
         </a>
       </li>
+      <li class = " @if ($activePage == 'typography') active @endif">
+        <a href="{{ route('page.index','table') }}">
+          <i class="now-ui-icons design_bullet-list-67"></i>
+          <p>{{ __('Typography') }}</p>
+        </a>
+      </li>
     </ul>
   </div>
 </div>

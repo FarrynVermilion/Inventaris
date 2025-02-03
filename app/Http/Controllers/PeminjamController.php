@@ -12,7 +12,7 @@ class PeminjamController extends Controller
      */
     public function index()
     {
-        //
+        return view('peminjam.index')->with('peminjam', Peminjam::all());
     }
 
     /**
@@ -20,7 +20,7 @@ class PeminjamController extends Controller
      */
     public function create()
     {
-        //
+        return view('peminjam.create');
     }
 
     /**
@@ -28,7 +28,12 @@ class PeminjamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'Nama_peminjam' => 'required|max:255',
+            'No_HP' => 'required|numeric',
+        ]);
+        Peminjam::create($request->all());
+        return redirect()->route('peminjam.index')->with('success', 'Peminjam berhasil ditambahkan');
     }
 
     /**
@@ -36,7 +41,7 @@ class PeminjamController extends Controller
      */
     public function show(Peminjam $peminjam)
     {
-        //
+        return view('peminjam.show')->with('peminjam', $peminjam);
     }
 
     /**
@@ -44,7 +49,7 @@ class PeminjamController extends Controller
      */
     public function edit(Peminjam $peminjam)
     {
-        //
+        return view('peminjam.edit')->with('edit', $peminjam);
     }
 
     /**
@@ -52,7 +57,12 @@ class PeminjamController extends Controller
      */
     public function update(Request $request, Peminjam $peminjam)
     {
-        //
+        $request->validate([
+            'Nama_peminjam' => 'required|max:255',
+            'No_HP' => 'required|numeric',
+        ]);
+        $peminjam->update($request->all());
+        return redirect()->route('peminjam.index')->with('success', 'Peminjam berhasil diupdate');
     }
 
     /**
@@ -60,6 +70,7 @@ class PeminjamController extends Controller
      */
     public function destroy(Peminjam $peminjam)
     {
-        //
+        $peminjam->delete();
+        return redirect()->route('peminjam.index')->with('success', 'Peminjam berhasil dihapus');
     }
 }
