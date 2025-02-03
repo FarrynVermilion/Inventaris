@@ -117,12 +117,24 @@
                 <b class="caret"></b>
             </p>
         </a>
-        <div class="collapse show" id="Aset_management">
+        <div class="collapse show" id="Pemnjaman">
             <ul class="nav">
                 <li class="@if ($activePage == 'peminjam') active @endif">
                     <a href="{{ route('peminjam.index','icons') }}">
                         <i class="now-ui-icons education_atom"></i>
-                        <p>{{ __('Maintenance') }}</p>
+                        <p>{{ __('Peminjam') }}</p>
+                    </a>
+                </li>
+                <li class="@if ($activePage == 'peminjaman') active @endif">
+                    <a href="{{ route('peminjaman.index','icons') }}">
+                        <i class="now-ui-icons education_atom"></i>
+                        <p>{{ __('peminjaman') }}</p>
+                    </a>
+                </li>
+                <li class="@if ($activePage == 'pengembalian') active @endif">
+                    <a href="{{ route('pengembalian.index','icons') }}">
+                        <i class="now-ui-icons education_atom"></i>
+                        <p>{{ __('pengembalian') }}</p>
                     </a>
                 </li>
             </ul>
