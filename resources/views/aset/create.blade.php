@@ -11,7 +11,7 @@
       <div class="col-md-8">
         <div class="card">
           <div class="card-header">
-            <h5 class="title">{{__(" Create Ruang")}}</h5>
+            <h5 class="title">{{__(" Create Aset")}}</h5>
           </div>
           <div class="card-body">
             <form method="post" action="{{ route('aset.store') }}" autocomplete="off" enctype="multipart/form-data">
