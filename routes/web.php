@@ -32,7 +32,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('asetDihanguskan', AsetDihanguskanController::class);
     Route::get('download/{file}', [AsetDihanguskanController::class,'download'])->name('download');
     Route::resource('peminjam', PeminjamController::class);
-    Route::resource('pinjaman', PeminjamanController::class);
+    Route::resource('peminjaman', PeminjamanController::class);
     Route::resource('pengembalian', PengembalianController::class);
     Route::get('{page}', ['as' => 'page.index', 'uses' => 'App\Http\Controllers\PageController@index']);
 });
