@@ -1,7 +1,7 @@
 @extends('layouts.app', [
     'class' => 'sidebar-mini ',
-    'namePage' => 'Edit Kategori',
-    'activePage' => 'kategori',
+    'namePage' => 'Edit Aset',
+    'activePage' => 'aset',
     'activeNav' => '',
 ])
 @section('content')
