@@ -11,6 +11,7 @@ class Detil_pinjam extends Model
     protected $fillable = [
         'Aset_id',
         'Jml_pinjam',
+        'Infaq'
     ];
     public $timestamps = false;
     public function aset()

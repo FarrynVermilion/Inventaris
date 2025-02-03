@@ -15,6 +15,7 @@ return new class extends Migration
             $table->integerIncrements("Pinjam_id")->primary();
             $table->string("Aset_id");
             $table->integer("Jml_pinjam");
+            $table->integer('Infaq');
         });
         Schema::create('Peminjaman', function (Blueprint $table) {
             $table->integerIncrements("Pinjam_id")->primary();
@@ -37,6 +38,7 @@ return new class extends Migration
             $table->integerIncrements("Kembali_id")->primary();
             $table->date("Tgl_kembali");
             $table->integer("Pinjam_id");
+            $table->string('Penerima');
         });
     }
 

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer("Biaya");
             $table->string("Nm_teknisi");
             $table->string("Aset_id");
+            $table->integer("Jumlah");
         });
     }
 

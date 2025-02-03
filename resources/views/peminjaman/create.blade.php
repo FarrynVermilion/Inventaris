@@ -11,15 +11,13 @@
       <div class="col-md-8">
         <div class="card">
           <div class="card-header">
-            <h5 class="title">{{__(" Create Maintenance")}}</h5>
+            <h5 class="title">{{__(" Create Peminjaman")}}</h5>
           </div>
           <div class="card-body">
-            <form method="post" action="{{ route('maintenance.store') }}" autocomplete="off" enctype="multipart/form-data">
+            <form method="post" action="{{ route('peminjaman.store') }}" autocomplete="off" enctype="multipart/form-data">
               @csrf
               @include('alerts.errors')
               @include('alerts.success')
-              <div class="row">
-              </div>
                 <div class="row">
                     <div class="col-md-7 pr-1">
                         <div class="form-group">
@@ -45,60 +43,58 @@
                 <div class="row">
                     <div class="col-md-7 pr-1">
                         <div class="form-group">
+                            <label>{{__(" Pilih peminjam")}}</label>
+                            <select name="Peminjam_id" class="form-control {{ $errors->has('Peminjam_id') ? ' is-invalid' : '' }}">
+                                @foreach ($peminjam as $p)
+                                    <option value="{{$p->Peminjam_id}}" {{old('Peminjam_id') == $p->Peminjam_id ? 'selected' : ''}}>
+                                        Nama : {{$p->Nama_peminjam}} |
+                                        No HP : {{$p->No_HP}}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @include('alerts.feedback', ['field' => 'Peminjam_id'])
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7 pr-1">
+                        <div class="form-group">
                             <label>{{__(" Jumlah")}}</label>
-                            <input type="number" name="Jumlah" class="form-control {{ $errors->has('Jumlah') ? ' is-invalid' : '' }}" placeholder="Jumlah" value="{{ old('Jumlah') }}">
-                            @include('alerts.feedback', ['field' => 'Jumlah'])
+                            <input type="number" name="Jml_pinjam" class="form-control {{ $errors->has('Jml_pinjam') ? ' is-invalid' : '' }}" placeholder="Jumlah pinjam" value="{{ old('Jml_pinjam') }}">
+                            @include('alerts.feedback', ['field' => 'Jml_pinjam'])
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-7 pr-1">
                         <div class="form-group">
-                            <label>{{__(" Tanggal maintenance")}}</label>
-                            <input type="date" name="Tgl_maintenance" class="form-control {{ $errors->has('Tgl_maintenance') ? ' is-invalid' : '' }}" placeholder="Tanggal maintenance" value="{{ old('Tgl_maintenance') }}">
-                            @include('alerts.feedback', ['field' => 'Tgl_maintenance'])
+                            <label>{{__(" Infaq")}}</label>
+                            <input type="number" name="Infaq" class="form-control {{ $errors->has('Infaq') ? ' is-invalid' : '' }}" placeholder="Infaq" value="{{ old('Infaq') }}">
+                            @include('alerts.feedback', ['field' => 'Infaq'])
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-7 pr-1">
                         <div class="form-group">
-                            <label>{{__(" Jenis maintenance")}}</label>
-                            <input type="text" name="Jenis_maintenance" class="form-control {{ $errors->has('Jenis_maintenance') ? ' is-invalid' : '' }}" placeholder="Jenis maintenance" value="{{ old('Jenis_maintenance') }}">
-                            @include('alerts.feedback', ['field' => 'Jenis_maintenance'])
+                            <label>{{__(" Tanggal pinjam")}}</label>
+                            <input type="date" name="Tgl_pinjam" class="form-control {{ $errors->has('Tgl_pinjam') ? ' is-invalid' : '' }}" placeholder="Tanggal pinjam" value="{{ old('Tgl_pinjam') }}">
+                            @include('alerts.feedback', ['field' => 'Tgl_pinjam'])
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-7 pr-1">
                         <div class="form-group">
-                            <label>{{__(" Deskripsi")}}</label>
-                            <input type="text" name="Deskripsi" class="form-control {{ $errors->has('Deskripsi') ? ' is-invalid' : '' }}" placeholder="Deskripsi" value="{{ old('Deskripsi') }}">
-                            @include('alerts.feedback', ['field' => 'Deskripsi'])
+                            <label>{{__(" Tanggal harus kembali")}}</label>
+                            <input type="date" name="Tgl_harus_kembali" class="form-control {{ $errors->has('Tgl_harus_kembali') ? ' is-invalid' : '' }}" placeholder="Tanggal harus kembali" value="{{ old('Tgl_harus_kembali') }}">
+                            @include('alerts.feedback', ['field' => 'Tgl_harus_kembali'])
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-7 pr-1">
-                        <div class="form-group">
-                            <label>{{__(" Biaya")}}</label>
-                            <input type="number" name="Biaya" class="form-control {{ $errors->has('Biaya') ? ' is-invalid' : '' }}" placeholder="Biaya" value="{{ old('Biaya') }}">
-                            @include('alerts.feedback', ['field' => 'Biaya'])
-                        </div>
-                    </div>
+                <div class="card-footer ">
+                    <button type="submit" class="btn btn-primary btn-round">{{__('Save')}}</button>
                 </div>
-                <div class="row">
-                    <div class="col-md-7 pr-1">
-                        <div class="form-group">
-                            <label>{{__(" Nama teknisi")}}</label>
-                            <input type="text" name="Nm_teknisi" class="form-control {{ $errors->has('Nm_teknisi') ? ' is-invalid' : '' }}" placeholder="Nama teknisi" value="{{ old('Nm_teknisi') }}">
-                            @include('alerts.feedback', ['field' => 'Nm_teknisi'])
-                        </div>
-                    </div>
-                </div>
-              <div class="card-footer ">
-                <button type="submit" class="btn btn-primary btn-round">{{__('Save')}}</button>
-              </div>
             </form>
           </div>
         </div>

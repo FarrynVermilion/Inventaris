@@ -15,7 +15,8 @@ class Maintenance extends Model
         'Deskripsi',
         'Biaya',
         'Nm_teknisi',
-        'Aset_id'
+        'Aset_id',
+        'Jumlah'
     ];
 
     public function aset()

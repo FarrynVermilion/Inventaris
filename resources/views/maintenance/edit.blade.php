@@ -80,6 +80,15 @@
                       </div>
                     </div>
                   </div>
+                  <div class="row">
+                    <div class="col-md-7 pr-1">
+                      <div class="form-group">
+                        <label>{{__(" Jumlah")}}</label>
+                        <input type="number" name="Jumlah" class="form-control" placeholder="Jumlah" value="{{ old('Jumlah', $edit->Jumlah) }}">
+                        @include('alerts.feedback', ['field' => 'Jumlah'])
+                      </div>
+                    </div>
+                  </div>
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary btn-round">{{__('Save')}}</button>
                     </div>

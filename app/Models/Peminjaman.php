@@ -13,4 +13,6 @@ class Peminjaman extends Model
         'Tgl_pinjam',
         'Tgl_harus_kembali',
     ];
+
+    public $timestamps = false;
 }

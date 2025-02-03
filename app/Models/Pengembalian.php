@@ -11,5 +11,8 @@ class Pengembalian extends Model
     protected $fillable = [
         'Pinjam_id',
         'Tgl_kembali',
+        'Penerima'
     ];
+
+    public $timestamps = false;
 }

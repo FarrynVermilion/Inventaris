@@ -53,7 +53,7 @@ class AsetController extends Controller
             'Seri'=>'max:255',
             'Harga_beli'=>'min:0|max_digits:20',
             'Tgl_perolehan'=>'',
-            'Tgl_akhir_garansi'=>'',
+            'Tgl_akhir_garansi'=>'after_or_equal:Tgl_perolehan',
             'Spesifikasi'=>'',
             'Kondisi_awal'=>'',
             'Jml_aset'=>'min:1',

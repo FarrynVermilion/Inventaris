@@ -32,6 +32,7 @@
                   <th>Biaya</th>
                   <th>Nama teknisi</th>
                   <th>Nama aset</th>
+                  <th>Jumlah</th>
                   <th class="disabled-sorting text-left">Actions</th>
                 </tr>
               </thead>
@@ -64,6 +65,9 @@
                                 </td>
                             @endif
                         @endforeach
+                        <td>
+                            {{$m->Jumlah}}
+                        </td>
                         <td>
                           <table>
                             <tr>
