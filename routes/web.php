@@ -28,9 +28,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('maintenance', MaintenanceController::class);
     Route::resource('asetDihanguskan', AsetDihanguskanController::class);
     Route::get('download/{file}', [AsetDihanguskanController::class,'download'])->name('download');
-    Route::get('aset.jual', [AsetController::class,'jual'])->name('aset.jual');
-    Route::get('aset.susut', [AsetController::class,'susut'])->name('aset.susut');
-    Route::get('aset.musnah', [AsetController::class,'musnah'])->name('aset.musnah');
     Route::get('{page}', ['as' => 'page.index', 'uses' => 'App\Http\Controllers\PageController@index']);
 });
 
