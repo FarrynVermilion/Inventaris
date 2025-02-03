@@ -46,7 +46,7 @@
                             {{$ad->Deskripsi}}
                         </td>
                         @foreach ($penghapusan_aset as $pa)
-                            @if ($pa->penghapusaan_id == $ad->penghapusaan_id)
+                            @if ($pa->penghapusan_id == $ad->penghapusan_id)
                                 <td>{{$pa->Tgl_penghapusan}}</td>
                                 <td>{{$pa->Status_penghapusan	}}</td>
                                 <td>{{$pa->Jml_dihapus}}</td>
@@ -54,14 +54,14 @@
                                     <a href="{!! route('download', $pa->Upload_File) !!}">{{$pa->Upload_File}}</a>
                                 </td>
                                 @foreach ($aset as $a)
-                                    @if (($a->Aset_id) == $pa->Aset_id)
+                                    @if ($a->Aset_id== $pa->Aset_id)
                                         <td>{{$a->Nama_Aset}}</td>
                                         <td>{{$pa->Aset_id}}</td>
                                         <td>
                                             <table>
                                                 <tr>
                                                     <td>
-                                                        <form method="GET" action="{{route('aset.show',$pa->Aset_id)}}">
+                                                        <form method="GET" action="{{route('aset.show',str_pad($pa->Aset_id, 11, '0', STR_PAD_LEFT))}}">
                                                             @csrf
                                                             <button type="submit" class="btn btn-info" style="width: 12em;">Detail data</button>
                                                         </form>
