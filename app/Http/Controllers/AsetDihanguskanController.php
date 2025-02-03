@@ -48,7 +48,7 @@ class AsetDihanguskanController extends Controller
             'Tgl_dihanguskan'=>'required',
             'Deskripsi'=>'required|max:255',
             'Status_penghapusan'=>'required|max:255',
-            'Jml_dihapus'=>"required|integer|min:0|max:$jumlah",
+            'Jml_dihapus'=>"required|integer|min:|max:$jumlah",
             'Upload_File'=>'required|file|image|mimes:jpeg,png,jpg|max:2048',
             'Aset_id'=>'required|max:255'
         ]);
