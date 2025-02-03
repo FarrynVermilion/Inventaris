@@ -108,7 +108,26 @@
             </ul>
         </div>
       </li>
-
+      <hr class="sidebar-divider my-2" style="width:90% ;border: 1px solid white !important; opacity: 35%;margin-right: 0px;">
+      <li>
+        <a data-toggle="collapse" href="#Pemnjaman">
+            <i class="fab fa-laravel"></i>
+            <p>
+                {{ __("Pemnjaman Aset") }}
+                <b class="caret"></b>
+            </p>
+        </a>
+        <div class="collapse show" id="Aset_management">
+            <ul class="nav">
+                <li class="@if ($activePage == 'peminjam') active @endif">
+                    <a href="{{ route('peminjam.index','icons') }}">
+                        <i class="now-ui-icons education_atom"></i>
+                        <p>{{ __('Maintenance') }}</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+      </li>
 
       <hr class="sidebar-divider my-2" style="width:90% ;border: 1px solid white !important; opacity: 35%;margin-right: 0px;">
 

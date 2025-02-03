@@ -7,6 +7,7 @@ use App\Http\Controllers\AsetController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\MaintenanceController;
 use App\Http\Controllers\AsetDihanguskanController;
+use App\Http\Controllers\PeminjamController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,6 +29,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('maintenance', MaintenanceController::class);
     Route::resource('asetDihanguskan', AsetDihanguskanController::class);
     Route::get('download/{file}', [AsetDihanguskanController::class,'download'])->name('download');
+    Route::resource('peminjam', PeminjamController::class);
     Route::get('{page}', ['as' => 'page.index', 'uses' => 'App\Http\Controllers\PageController@index']);
 });
 
