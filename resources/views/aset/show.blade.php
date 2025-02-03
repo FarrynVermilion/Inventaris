@@ -23,6 +23,12 @@
                 </div>
                 <div class="col-md-7 pr-1">
                     <div class="form-group">
+                        <label>{{__(" Merek Aset")}}</label>
+                        <p>{{ $Aset->Merek_Aset }}</p>
+                    </div>
+                </div>
+                <div class="col-md-7 pr-1">
+                    <div class="form-group">
                         <label>{{__(" Tipe")}}</label>
                         <p>{{ $Aset->Tipe }}</p>
                     </div>

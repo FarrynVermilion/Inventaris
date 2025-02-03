@@ -109,6 +109,7 @@
         </div>
       </li>
 
+
       <hr class="sidebar-divider my-2" style="width:90% ;border: 1px solid white !important; opacity: 35%;margin-right: 0px;">
 
       <li class="@if ($activePage == 'icons') active @endif">
