@@ -21,6 +21,19 @@ return new class extends Migration
             $table->string("Aset_id");
             $table->integer("Jumlah");
         });
+        Schema::create('Penggunaan', function (Blueprint $table) {
+            $table->integerIncrements("Penggunaan_id")->primary();
+            $table->string("Aset_id");
+            $table->string("Untuk");
+            $table->integer("Jumlah");
+        });
+        Schema::create('Rusak', function (Blueprint $table) {
+            $table->integerIncrements("Rusak_id")->primary();
+            $table->string("Aset_id");
+            $table->string("Kerusakan");
+            $table->string("Penanggung_jawab");
+            $table->integer("Jumlah");
+        });
     }
 
     /**

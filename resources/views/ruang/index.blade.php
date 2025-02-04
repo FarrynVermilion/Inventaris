@@ -52,8 +52,6 @@
                                             <button type="submit" class="btn btn-warning">Edit</button>
                                         </form>
                                     </td>
-                                </th>
-                                <th>
                                     <td>
                                         <form method="POST" action="{{route('ruang.destroy',$r->Ruang_id)}}" onsubmit="return hapus()">
                                             @csrf

@@ -82,6 +82,7 @@
             </ul>
         </div>
       </li>
+
       <hr class="sidebar-divider my-2" style="width:90% ;border: 1px solid white !important; opacity: 35%;margin-right: 0px;">
       <li>
         <a data-toggle="collapse" href="#Aset_management">
@@ -93,21 +94,34 @@
         </a>
         <div class="collapse show" id="Aset_management">
             <ul class="nav">
+                <li class="@if ($activePage == 'penggunaan') active @endif">
+                    <a href="{{ route('penggunaan.index','icons') }}">
+                        <i class="now-ui-icons education_atom"></i>
+                        <p>{{ __('Penggunaan') }}</p>
+                    </a>
+                </li>
+                <li class="@if ($activePage == 'rusak') active @endif">
+                    <a href="{{ route('rusak.index','icons') }}">
+                        <i class="now-ui-icons education_atom"></i>
+                        <p>{{ __('Rusak') }}</p>
+                    </a>
+                </li>
                 <li class="@if ($activePage == 'maintenance') active @endif">
                     <a href="{{ route('maintenance.index','icons') }}">
                         <i class="now-ui-icons education_atom"></i>
                         <p>{{ __('Maintenance') }}</p>
                     </a>
-                  </li>
-                  <li class="@if ($activePage == 'asetDihanguskan') active @endif">
-                    <a href="{{ route('asetDihanguskan.index','icons') }}">
-                        <i class="now-ui-icons education_atom"></i>
-                        <p>{{ __('Penghangusan aset') }}</p>
-                    </a>
-                  </li>
+                </li>
+                <li class="@if ($activePage == 'asetDihanguskan') active @endif">
+                <a href="{{ route('asetDihanguskan.index','icons') }}">
+                    <i class="now-ui-icons education_atom"></i>
+                    <p>{{ __('Penghangusan aset') }}</p>
+                </a>
+                </li>
             </ul>
         </div>
       </li>
+
       <hr class="sidebar-divider my-2" style="width:90% ;border: 1px solid white !important; opacity: 35%;margin-right: 0px;">
       <li>
         <a data-toggle="collapse" href="#Pemnjaman">

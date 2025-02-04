@@ -33,9 +33,9 @@ class PengembalianController extends Controller
      */
     public function create()
     {
-        $kembali=DB::table('Pengembalian')->pluck('Pinjam_id');
-        $peminjaman=DB::table('Peminjaman')->whereNotIn('Pinjam_id',$kembali)->get();
-        $dp=DB::table('Detil_pinjam')->whereNotIn('Pinjam_id',$kembali)->get();
+        $belum_kembali=DB::table('Detil_pinjam')->where('Belum_kembali','>','0')->  pluck('Pinjam_id');
+        $peminjaman=DB::table('Peminjaman')->whereIn('Pinjam_id',$belum_kembali)->get();
+        $dp=DB::table('Detil_pinjam')->whereIn('Pinjam_id',$belum_kembali)->get();
         return view('pengembalian.create',[
             'peminjaman'=>$peminjaman,
             'detil_pinjam'=>$dp,
@@ -50,10 +50,11 @@ class PengembalianController extends Controller
     public function store(Request $request)
     {
         $dp=Detil_pinjam::find($request->Pinjam_id);
+        $blm=$dp->Belum_kembali;
         $request->validate([
             'Pinjam_id'=>'required',
             'Tgl_kembali'=>'required|date',
-            'Jml_kembali'=>'required|min:0|max:'.$dp->Belum_kembali,
+            'Jml_kembali'=>"required|integer|min:0|max:$blm",
             'Status_kembali'=>'required|max:255',
             'Penerima'=>'required|max:255'
         ]);
@@ -66,11 +67,11 @@ class PengembalianController extends Controller
         $DK->Aset_id=str_pad($dp->Aset_id, 11, '0', STR_PAD_LEFT);
         $DK->Jml_kembali=$request->Jml_kembali;
         $DK->Status_kembali=$request->Status_kembali;
-        $DK->Penerima=$request->Penerima;
         $DK->save();
         $pmbln= new Pengembalian();
         $pmbln->Tgl_kembali=$request->Tgl_kembali;
         $pmbln->Pinjam_id=$request->Pinjam_id;
+        $pmbln->Penerima=$request->Penerima;
         $pmbln->save();
         return redirect()->route('pengembalian.index')->with('success','Pengembalian berhasil ditambahkan');
     }

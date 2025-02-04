@@ -66,20 +66,18 @@
                       </div>
                     </div>
                   </div>
-                  <div class="row">
+                  {{-- <div class="row">
                     <div class="col-md-7 pr-1">
                       <div class="form-group">
                         <label>{{__(" Aset")}}</label>
                         <select name="Aset_id" class="form-control">
                           @foreach ($aset as $a)
-                            @if ($a->Stok != 0)
-                                <option value="{{$a->Aset_id}}" {{$edit->Aset_id == $a->Aset_id ? 'selected' : ''}}>Barang : {{$a->Nama_Aset}} | Merek : {{$a->Merek_Aset}} | Tipe : {{$a->Tipe}} | Model : {{$a->Model}} | Seri : {{$a->Seri}} | Stok : {{$a->Stok}}</option>
-                            @endif
+                            <option value="{{$a->Aset_id}}" {{$edit->Aset_id == $a->Aset_id ? 'selected' : ''}}>Barang : {{$a->Nama_Aset}} | Merek : {{$a->Merek_Aset}} | Tipe : {{$a->Tipe}} | Model : {{$a->Model}} | Seri : {{$a->Seri}} | Stok : {{$a->Stok}}</option>
                           @endforeach
                         </select>
                       </div>
                     </div>
-                  </div>
+                  </div> --}}
                   <div class="row">
                     <div class="col-md-7 pr-1">
                       <div class="form-group">

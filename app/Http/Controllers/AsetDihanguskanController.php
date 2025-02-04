@@ -10,6 +10,7 @@ use App\Models\Ruang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use League\Flysystem\WhitespacePathNormalizer;
+use Illuminate\Support\Facades\DB;
 
 class AsetDihanguskanController extends Controller
 {
@@ -30,8 +31,9 @@ class AsetDihanguskanController extends Controller
      */
     public function create()
     {
+        $aset=DB::table('Aset')->where('Stok','>','0')->get();
         return view('asetDihanguskan.create', [
-            'aset' => Aset::all(),
+            'aset' => $aset,
             'kategori' => Kategori::all(),
             'ruang' => Ruang::all()
         ]);
@@ -48,8 +50,8 @@ class AsetDihanguskanController extends Controller
             'Tgl_dihanguskan'=>'required',
             'Deskripsi'=>'required|max:255',
             'Status_penghapusan'=>'required|max:255',
-            'Jml_dihapus'=>"required|integer|min:|max:$jumlah",
-            'Upload_File'=>'required|file|image|mimes:jpeg,png,jpg|max:2048',
+            'Jml_dihapus'=>"required|integer|min:0|max:".$jumlah,
+            'Upload_File'=>'required|file|image|mimes:jpeg,png,jpg,pdf|max:2048',
             'Aset_id'=>'required|max:255'
         ]);
         $filenameWithExt = $request->file('Upload_File')->getClientOriginalName();

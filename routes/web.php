@@ -10,6 +10,9 @@ use App\Http\Controllers\AsetDihanguskanController;
 use App\Http\Controllers\PeminjamController;
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\PengembalianController;
+use App\Http\Controllers\PDFController;
+use App\Http\Controllers\RusakController;
+use App\Http\Controllers\PenggunaanController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,12 +31,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('ruang', RuangController::class);
     Route::resource('kategori', KategoriController::class);
     Route::resource('aset', AsetController::class);
+    Route::resource('penggunaan', PenggunaanController::class);
+    Route::resource('rusak', RusakController::class);
     Route::resource('maintenance', MaintenanceController::class);
     Route::resource('asetDihanguskan', AsetDihanguskanController::class);
     Route::get('download/{file}', [AsetDihanguskanController::class,'download'])->name('download');
     Route::resource('peminjam', PeminjamController::class);
     Route::resource('peminjaman', PeminjamanController::class);
     Route::resource('pengembalian', PengembalianController::class);
+    Route::get('asetPDF',[PDFController::class,'asetPDF'])->name('asetPDF');
     Route::get('{page}', ['as' => 'page.index', 'uses' => 'App\Http\Controllers\PageController@index']);
 });
 

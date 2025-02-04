@@ -22,7 +22,7 @@ class PeminjamanController extends Controller
             'peminjaman' => $peminjaman,
             'detil_pinjam' => Detil_pinjam::all(),
             'peminjam' => Peminjam::all(),
-            'aset' => Aset::all(),
+            'aset' => Aset::all()
         ]);
     }
 
@@ -31,9 +31,10 @@ class PeminjamanController extends Controller
      */
     public function create()
     {
+        $aset=DB::table('Aset')->where('Stok','>','0')->get();
         return view('peminjaman.create',[
             'peminjam' => Peminjam::all(),
-            'aset' => Aset::all(),
+            'aset' => $aset
         ]);
     }
 
@@ -46,7 +47,7 @@ class PeminjamanController extends Controller
         $request->validate([
             'Aset_id'=>"required",
             'Peminjam_id'=>"required",
-            'Jml_pinjam'=>'required|min:0|max:'.$aset->Stok,
+            'Jml_pinjam'=>'required|integer|min:0|max:'.$aset->Stok,
             'Infaq'=>'required',
             'Tgl_pinjam'=>'required',
             'Tgl_harus_kembali'=>'required|after_or_equal:Tgl_pinjam'

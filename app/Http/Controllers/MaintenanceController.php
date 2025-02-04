@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Maintenance;
 use App\Models\Aset;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MaintenanceController extends Controller
 {
@@ -23,7 +24,8 @@ class MaintenanceController extends Controller
      */
     public function create()
     {
-        return view('maintenance.create',['aset'=>Aset::all()]);
+        $aset=DB::table('Aset')->where('Stok','>','0')->get();
+        return view('maintenance.create',['aset'=>$aset]);
     }
 
     /**
@@ -37,9 +39,9 @@ class MaintenanceController extends Controller
             'Tgl_maintenance' => 'required',
             'Jenis_maintenance' => 'required|max:255',
             'Deskripsi' => 'required|max:255',
-            'Biaya' => 'required|min:0',
+            'Biaya' => 'required|integer|min:0',
             'Nm_teknisi' => 'required|max:255',
-            'Jumlah'=>'required|min:0|max:'.$aset->Stok
+            'Jumlah'=>'required|integer|min:0|max:'.$aset->Stok
         ]);
         $aset->Stok=$aset->Stok-$request->Jumlah;
         $aset->save();
@@ -79,21 +81,20 @@ class MaintenanceController extends Controller
      */
     public function update(Request $request, Maintenance $maintenance)
     {
-        $aset = Aset::find(str_pad($request->Aset_id, 11, '0', STR_PAD_LEFT));
+        $aset = Aset::find(str_pad($maintenance->Aset_id, 11, '0', STR_PAD_LEFT));
+        $jmlh_awal=$aset->Stok+$maintenance->Jumlah;
         $request->validate([
-            'Aset_id' => 'required',
             'Tgl_maintenance' => 'required',
             'Jenis_maintenance' => 'required|max:255',
             'Deskripsi' => 'required|max:255',
             'Biaya' => 'required|min:0',
             'Nm_teknisi' => 'required|max:255',
-            'Jumlah'=>'required|min:0|max:'.$aset->Stok
+            'Jumlah'=>'required|integer|min:0|max:'.$jmlh_awal
         ]);
-        $aset->Stok=$aset->Stok+$maintenance->Jumlah-$request->Jumlah;
+        $aset->Stok=$jmlh_awal-$request->Jumlah;
         $aset->save();
 
         $maintenance->Jumlah = $request->Jumlah;
-        $maintenance->Aset_id = $request->Aset_id;
         $maintenance->Tgl_maintenance = $request->Tgl_maintenance;
         $maintenance->Jenis_maintenance	 = $request->Jenis_maintenance	;
         $maintenance->Deskripsi = $request->Deskripsi;

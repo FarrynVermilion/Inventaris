@@ -37,7 +37,6 @@
               </thead>
               <tbody>
                 @foreach ( $Aset as $a)
-                    @if ($a->Stok != 0)
                     <tr>
                         <td>
                             {{$a->Aset_id}}
@@ -87,7 +86,6 @@
                             </table>
                         </td>
                     </tr>
-                    @endif
                 @endforeach
               </tbody>
             </table>

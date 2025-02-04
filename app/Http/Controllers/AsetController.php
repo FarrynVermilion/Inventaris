@@ -127,17 +127,17 @@ class AsetController extends Controller
     {
         $request->validate([
             'Nama_Aset'=>'required|max:255',
-            'Merek_Aset'=>'max:255',
-            'Tipe'=>'max:255',
-            'Model'=>'max:255',
-            'Seri'=>'max:255',
-            'Harga_beli'=>'min:0|max_digits:20',
-            'Tgl_perolehan'=>'',
-            'Tgl_akhir_garansi'=>'',
-            'Spesifikasi'=>'',
-            'Kondisi_awal'=>'',
-            'Status_aset'=>'max:255',
-            'COA'=>'max:255',
+            'Merek_Aset'=>'required|after:date',
+            'Tipe'=>'required|max:255',
+            'Model'=>'required|max:255',
+            'Seri'=>'required|max:255',
+            'Harga_beli'=>'required|min:0|max_digits:20',
+            'Tgl_perolehan'=>'required',
+            'Tgl_akhir_garansi'=>'required|after_or_equal:Tgl_perolehan',
+            'Spesifikasi'=>'required',
+            'Kondisi_awal'=>'required',
+            'Status_aset'=>'required|max:255',
+            'COA'=>'required|max:255',
             'Kategori_id'=>'required',
             'Ruang_id'=>'required'
         ]);
