@@ -43,6 +43,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('tidakDigunakanPDF',[PDFController::class,'tidakDigunakanPDF'])->name('tidakDigunakanPDF');
     Route::get('rusakPDF',[PDFController::class,'rusakPDF'])->name('rusakPDF');
     Route::get('musnahPDF',[PDFController::class,'musnahPDF'])->name('musnahPDF');
-    Route::get('{page}', ['as' => 'page.index', 'uses' => 'App\Http\Controllers\PageController@index']);
+    // Route::get('{page}', ['as' => 'page.index', 'uses' => 'App\Http\Controllers\PageController@index']);
 });
 
