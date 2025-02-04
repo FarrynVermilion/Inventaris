@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string("Aset_id");
             $table->integer("Jml_pinjam");
             $table->integer('Infaq');
+            $table->integer('Belum_kembali');
         });
         Schema::create('Peminjaman', function (Blueprint $table) {
             $table->integerIncrements("Pinjam_id")->primary();

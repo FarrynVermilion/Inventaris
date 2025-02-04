@@ -12,6 +12,7 @@ class Detil_kembali extends Model
         'Aset_id',
         'Jml_kembali',
         'Status_kembali',
+        'Penerima'
     ];
     public $timestamps = false;
     public function aset()

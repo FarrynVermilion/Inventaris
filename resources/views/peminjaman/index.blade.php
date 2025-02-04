@@ -30,8 +30,8 @@
                   <th>No Hp</th>
                   <th>Tanggal pinjam</th>
                   <th>Tanggal harus kembali</th>
-
                   <th>Jumlah pinjam</th>
+                  <th>Belum Kembali</th>
                   <th>Infaq</th>
                   <th>Nama aset</th>
                   <th>Merek aset</th>
@@ -65,6 +65,9 @@
                             @if ($dp->Pinjam_id==$p->Pinjam_id )
                                 <td>
                                     {{$dp->Jml_pinjam}}
+                                </td>
+                                <td>
+                                    {{$dp->Belum_kembali}}
                                 </td>
                                 <td>
                                     {{$dp->Infaq}}
