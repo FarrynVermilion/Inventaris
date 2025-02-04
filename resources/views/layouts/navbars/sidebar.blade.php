@@ -155,18 +155,12 @@
         </div>
       </li>
 
-      <hr class="sidebar-divider my-2" style="width:90% ;border: 1px solid white !important; opacity: 35%;margin-right: 0px;">
+      {{-- <hr class="sidebar-divider my-2" style="width:90% ;border: 1px solid white !important; opacity: 35%;margin-right: 0px;">
 
       <li class="@if ($activePage == 'icons') active @endif">
         <a href="{{ route('page.index','icons') }}">
           <i class="now-ui-icons education_atom"></i>
           <p>{{ __('Icons') }}</p>
-        </a>
-      </li>
-      <li class = "@if ($activePage == 'maps') active @endif">
-        <a href="{{ route('page.index','maps') }}">
-          <i class="now-ui-icons location_map-big"></i>
-          <p>{{ __('Maps') }}</p>
         </a>
       </li>
       <li class = " @if ($activePage == 'notifications') active @endif">
@@ -186,7 +180,7 @@
           <i class="now-ui-icons design_bullet-list-67"></i>
           <p>{{ __('Typography') }}</p>
         </a>
-      </li>
+      </li> --}}
     </ul>
   </div>
 </div>
