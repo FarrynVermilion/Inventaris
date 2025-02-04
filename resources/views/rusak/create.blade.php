@@ -64,7 +64,7 @@
                     <div class="col-md-7 pr-1">
                         <div class="form-group">
                             <label>{{__(" Peenanggung jawab")}}</label>
-                            <input type="text" name="Penanggung_jawab" class="form-control {{ $errors->has('Penanggung_jawab') ? ' is-invalid' : '' }}" placeholder="Penanggung_jawab" value="{{ old('Penanggung_jawab') }}">
+                            <input type="text" name="Penanggung_jawab" class="form-control {{ $errors->has('Penanggung jawab') ? ' is-invalid' : '' }}" placeholder="Penanggung_jawab" value="{{ old('Penanggung_jawab') }}">
                             @include('alerts.feedback', ['field' => 'Penanggung_jawab'])
                         </div>
                     </div>

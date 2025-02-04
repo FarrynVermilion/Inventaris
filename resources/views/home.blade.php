@@ -17,17 +17,20 @@
           <div class="card-body">
             <div class="table-responsive">
               <table class="table">
-                <thead class=" text-primary">
-                  <th>
-                    <a class="btn btn-primary btn-round text-white" href="{{route('asetPDF')}}">Laporan aset</a>
-                  </th>
-                </thead>
-                <tbody>
                   <tr>
-                    <td>
+                    <td class="text-center w-25">
+                        <a class="btn btn-primary btn-round text-white" href="{{route('asetPDF')}}">Laporan aset</a>
+                    </td>
+                    <td class="text-center w-25">
+                        <a class="btn btn-primary btn-round text-white" href="{{route('tidakDigunakanPDF')}}">Laporan aset tidak digunakan</a>
+                    </td>
+                    <td class="text-center w-25">
+                        <a class="btn btn-primary btn-round text-white" href="{{route('rusakPDF')}}">Laporan aset rusak</a>
+                    </td>
+                    <td class="text-center w-25">
+                        <a class="btn btn-primary btn-round text-white" href="{{route('musnahPDF')}}">Laporan aset musnah</a>
                     </td>
                   </tr>
-                </tbody>
               </table>
             </div>
           </div>
