@@ -42,6 +42,34 @@
     <htmlpageheader name="page-header">
         <div class="header">
             <p>DATA ASET PER KATEGORI</p>
+            <p>
+                Dokumeen dibuat pertanggal
+                @switch(date('w'))
+                    @case(0)
+                        Minggu
+                        @break
+                    @case(1)
+                        Senin
+                        @break
+                    @case(2)
+                        Selasa
+                        @break
+                    @case(3)
+                        Rabu
+                        @break
+                    @case(4)
+                        Kamis
+                        @break
+                    @case(5)
+                        Jumat
+                        @break
+                    @case(6)
+                        Sabtu
+                        @break
+                    @default
+                @endswitch
+                {{date('d-m-Y')}}
+            </p>
             <hr>
         </div>
     </htmlpageheader>
@@ -112,6 +140,7 @@
                                                 <td>{{$a->Spesifikasi}}</td>
                                                 <td>{{$a->Kondisi_awal}}</td>
                                                 <td>{{$a->Jml_aset}}</td>
+                                                <td>{{$a->Stok}}</td>
                                                 <td>{{$a->Status_aset}}</td>
                                                 <td>{{$a->COA}}</td>
                                                 @foreach ($ruang as $r)
