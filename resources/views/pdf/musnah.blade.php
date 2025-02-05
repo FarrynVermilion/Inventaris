@@ -41,7 +41,7 @@
 <body>
     <htmlpageheader name="page-header">
         <div class="header">
-            <p>DATA ASET YANG TIDAK DIGUNAKAN</p>
+            <p>DATA ASET YANG DIMUSNAHKAN</p>
             <p>
                 Dokumeen dibuat pertanggal
                 @switch(date('w'))
