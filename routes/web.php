@@ -15,6 +15,9 @@ use App\Http\Controllers\RusakController;
 use App\Http\Controllers\PenggunaanController;
 
 Route::get('/', function () {
+    if(Auth::check()){
+        return redirect()->route('home');
+    }
     return view('welcome');
 });
 
