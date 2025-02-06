@@ -139,13 +139,13 @@ class AsetController extends Controller
             'Status_aset'=>'required|max:255',
             'COA'=>'required|max:255',
         ]);
-        $num=substr($aset->Aset_id, 0, 3);
-        $kat=str_pad($request->Kategori_id%100, 2, '0', STR_PAD_LEFT);
-        $lok=str_pad($request->Ruang_id%100, 2, '0', STR_PAD_LEFT);
-        $m=date('m',strtotime($request->Tgl_perolehan));
-        $y=date('y',strtotime($request->Tgl_perolehan));
+        // $num=substr($aset->Aset_id, 0, 3);
+        // $kat=str_pad($request->Kategori_id%100, 2, '0', STR_PAD_LEFT);
+        // $lok=str_pad($request->Ruang_id%100, 2, '0', STR_PAD_LEFT);
+        // $m=date('m',strtotime($request->Tgl_perolehan));
+        // $y=date('y',strtotime($request->Tgl_perolehan));
         $val = Array(
-            'Aset_id' => $num.$kat.$lok.$m.$y,
+            // 'Aset_id' => $num.$kat.$lok.$m.$y,
             'Nama_Aset'=>$request->Nama_Aset,
             'Merek_Aset'=>$request->Merek_Aset,
             'Tipe'=>$request->Tipe,
