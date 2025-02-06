@@ -138,8 +138,6 @@ class AsetController extends Controller
             'Kondisi_awal'=>'required',
             'Status_aset'=>'required|max:255',
             'COA'=>'required|max:255',
-            'Kategori_id'=>'required',
-            'Ruang_id'=>'required'
         ]);
         $num=substr($aset->Aset_id, 0, 3);
         $kat=str_pad($request->Kategori_id%100, 2, '0', STR_PAD_LEFT);
@@ -159,9 +157,7 @@ class AsetController extends Controller
             'Spesifikasi'=>$request->Spesifikasi,
             'Kondisi_awal'=>$request->Kondisi_awal,
             'Status_aset'=>$request->Status_aset,
-            'COA'=>$request->COA,
-            'Kategori_id'=>$request->Kategori_id,
-            'Ruang_id'=>$request->Ruang_id
+            'COA'=>$request->COA
         );
         $aset = Aset::find($aset->Aset_id);
         $aset->update($val);

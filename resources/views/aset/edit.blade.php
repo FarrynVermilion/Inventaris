@@ -88,7 +88,7 @@
                             <input type="text" name="COA" class="form-control" value="{{ old('COA', $edit->COA) }}">
                             @include('alerts.feedback', ['field' => 'COA'])
                         </div>
-                        <div>
+                        {{-- <div>
                             <label>{{__(" Kategori")}}</label>
                             <select class="form-control" name="Kategori_id">
                                 @foreach ($Kategori as $item)
@@ -105,7 +105,7 @@
                                 @endforeach
                             </select>
                             @include('alerts.feedback', ['field' => 'Ruang_id'])
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
               <div class="card-footer ">
