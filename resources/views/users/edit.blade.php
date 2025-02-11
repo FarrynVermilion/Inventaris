@@ -18,7 +18,7 @@
               @csrf
               @include('alerts.errors')
               @include('alerts.success')
-              @method('PUT')
+              @method('POST')
               <div class="row">
               </div>
                 <div class="row">

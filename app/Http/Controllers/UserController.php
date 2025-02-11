@@ -20,11 +20,12 @@ class UserController extends Controller
     {
         return view('users.index', ['users' => $model->paginate(15)]);
     }
-    public function destroy(User $user)
+    public function destroy($id)
     {
+        $user=User::find($id);
         $user->delete();
 
-        return redirect('user.index')->with('success','Data Berhasil Dihapus');
+        return redirect('user.index')->with('success','Data Berhasil Dihapus'.$user->id);
     }
     protected function register()
     {

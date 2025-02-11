@@ -56,7 +56,7 @@
                                         </form>
                                     </td>
                                     <td>
-                                        <form method="POST" action="{{route('user.destroy',$user->id)}}" onsubmit="return hapus()">
+                                        <form method="GET" action="{{route('user.destroy',$user->id)}}" onsubmit="return hapus()">
                                             @csrf
                                             <input name="_method" type="hidden" value="DELETE">
                                             <button type="submit" class="btn btn-danger">Hapus</button>

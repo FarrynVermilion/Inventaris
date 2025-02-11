@@ -13,6 +13,9 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->redirectGuestsTo('/');
+        // $middleware->append(
+        //     \App\Http\Middleware\Role::class
+        // );
         $middleware->alias([
             'user-access'=> \App\Http\Middleware\Role::class
         ]);
