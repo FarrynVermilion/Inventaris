@@ -83,7 +83,7 @@
                 </div>
                 <div class="col-md-7 pr-1">
                     <div class="form-group">
-                        <label>{{__(" Stok")}}</label>
+                        <label>{{__(" Aset tersedia")}}</label>
                         <p>{{ $Aset->Stok }}</p>
                     </div>
                 </div>

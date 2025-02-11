@@ -1,6 +1,6 @@
 @extends('layouts.app', [
     'class' => 'sidebar-mini ',
-    'namePage' => 'create aset dihanguskan',
+    'namePage' => 'create penghapusan aset',
     'activePage' => 'asetDihanguskan'
 ])
 @section('content')
@@ -11,7 +11,7 @@
       <div class="col-md-8">
         <div class="card">
           <div class="card-header">
-            <h5 class="title">{{__(" Create Aset Dihanguskan")}}</h5>
+            <h5 class="title">{{__(" Create penghapusan aset")}}</h5>
           </div>
           <div class="card-body">
             <form method="post" action="{{ route('asetDihanguskan.store') }}" autocomplete="off" enctype="multipart/form-data">
@@ -33,7 +33,7 @@
                                             Tipe : {{$a->Tipe}} |
                                             Model : {{$a->Model}} |
                                             Seri : {{$a->Seri}} |
-                                            Stok : {{$a->Stok}} |
+                                            Aset tersedia : {{$a->Stok}} |
                                             Ruang :
                                             @foreach ( $ruang as $r)
                                                 @if ($r->Ruang_id == $a->Ruang_id)
@@ -77,11 +77,23 @@
                 <div class="row">
                     <div class="col-md-7 pr-1">
                         <div class="form-group">
-                            <label>{{__(" Upload File")}}</label>
+                            <label>{{__(" Upload file")}}</label>
                             <div>
                                 <input type="file" name="Upload_File" class="form-control {{ $errors->has('Upload_File') ? ' is-invalid' : '' }}">
                             </div>
                             @include('alerts.feedback', ['field' => 'Upload_File'])
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-7 pr-1">
+                        <div class="form-group">
+                            <label>{{__(" Upload foto")}}</label>
+                            <div>
+                                <input type="file" name="Upload_Foto" class="form-control {{ $errors->has('Upload_Foto') ? ' is-invalid' : '' }}">
+                            </div>
+                            @include('alerts.feedback', ['field' => 'Upload_Foto'])
                         </div>
                     </div>
                 </div>

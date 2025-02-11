@@ -28,7 +28,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-md-7 pr-1">
                         <div class="form-group">
@@ -76,7 +75,7 @@
                         <div class="form-group">
                             <label>{{__(" Tanggal akhir garansi")}}</label>
                             <input type="date" name="Tgl_akhir_garansi" class="form-control {{ $errors->has('Tgl_akhir_garansi	') ? ' is-invalid' : '' }}" placeholder="Tgl_akhir_garansi" value="{{ old('Tgl_akhir_garansi') }}">
-                            @include('alerts.feedback', ['field' => 'Tgl_akhir_garansi	'])
+                            @include('alerts.feedback', ['field' => 'Tgl_akhir_garansi'])
                         </div>
                     </div>
                     <div class="col-md-7 pr-1">
@@ -89,7 +88,16 @@
                     <div class="col-md-7 pr-1">
                         <div class="form-group">
                             <label>{{__(" Kondisi awal")}}</label>
-                            <input type="text" name="Kondisi_awal" class="form-control {{ $errors->has('Kondisi_awal') ? ' is-invalid' : '' }}" placeholder="Kondisi awal" value="{{ old('Kondisi_awal') }}">
+                            <select name="Kondisi_awal" class="form-control {{ $errors->has('Kondisi_awal') ? ' is-invalid' : '' }}">
+                                <option value="Baru"
+                                @if ( old('Kondisi_awal')=='Baru')
+                                    selected
+                                @endif>Baru</option>
+                                <option value="Bekas"
+                                @if ( old('Kondisi_awal')=='Bekas')
+                                    selected
+                                @endif>Bekas</option>
+                              </select>
                             @include('alerts.feedback', ['field' => 'Kondisi_awal'])
                         </div>
                     </div>
@@ -98,13 +106,6 @@
                             <label>{{__(" Jumlah aset")}}</label>
                             <input type="number" name="Jml_aset" class="form-control {{ $errors->has('Jml_aset') ? ' is-invalid' : '' }}" placeholder="Jumlah aset" value="{{ old('Jml_aset') }}">
                             @include('alerts.feedback', ['field' => 'Jml_aset'])
-                        </div>
-                    </div>
-                    <div class="col-md-7 pr-1">
-                        <div class="form-group">
-                            <label>{{__(" Status aset")}}</label>
-                            <input type="text" name="Status_aset" class="form-control {{ $errors->has('Status_aset') ? ' is-invalid' : '' }}" placeholder="Status_aset" value="{{ old('Status_aset') }}">
-                            @include('alerts.feedback', ['field' => 'Status_aset'])
                         </div>
                     </div>
                     <div class="col-md-7 pr-1">
@@ -141,7 +142,7 @@
                                         >Nama ruang : {{$r->Nm_ruang}} <br> lokasi : {{$r->Lokasi}}</option>
                                 @endforeach
                               </select>
-                            @include('alerts.feedback', ['field' => 'Kategori_id'])
+                            @include('alerts.feedback', ['field' => 'Ruang_id'])
                         </div>
                     </div>
 

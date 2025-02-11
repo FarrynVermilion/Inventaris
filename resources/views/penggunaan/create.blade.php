@@ -33,7 +33,7 @@
                                             Tipe : {{$a->Tipe}} |
                                             Model : {{$a->Model}} |
                                             Seri : {{$a->Seri}} |
-                                            Stok : {{$a->Stok}}
+                                            Aset tersedia : {{$a->Stok}}
                                         </option>
                                     @endif
                                 @endforeach

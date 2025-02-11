@@ -34,7 +34,7 @@
                   <div class="col-md-7 pr-1">
                     <div class="form-group">
                       <label>{{__(" Jenis maintenance")}}</label>
-                      <input type="text" name="Jenis_maintenance" class="form-control" placeholder="Jenis_maintenance" value="{{ old('Jenis_maintenance', $edit->Jenis_maintenance) }}">
+                      <input type="text" name="Jenis_maintenance" class="form-control" placeholder="Jenis maintenance" value="{{ old('Jenis_maintenance', $edit->Jenis_maintenance) }}">
                       @include('alerts.feedback', ['field' => 'Jenis_maintenance'])
                     </div>
                   </div>

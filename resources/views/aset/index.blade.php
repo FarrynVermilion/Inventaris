@@ -29,7 +29,7 @@
                   <th>ID</th>
                   <th>Nama Aset</th>
                   <th>Jumlah aset</th>
-                  <th>Stok</th>
+                  <th>Aset tersedia</th>
                   <th>Kategori</th>
                   <th>Ruang</th>
                   <th class="disabled-sorting text-left">Actions</th>

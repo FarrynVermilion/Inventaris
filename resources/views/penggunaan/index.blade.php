@@ -29,7 +29,7 @@
                   <th>Nama aset</th>
                   <th>Merek aset</th>
                   <th>Jumlah aset</th>
-                  <th>Stok</th>
+                  <th>Aset tersedia</th>
                   <th>Untuk</th>
                   <th>Jumlah digunakan</th>
                   <th class="disabled-sorting text-left">Actions</th>

@@ -14,6 +14,7 @@ class Penghapusan_aset extends Model
         'Status_penghapusan',
         'Jml_dihapus',
         'Upload_File',
+        'Upload_Foto',
         'Aset_id'
     ];
 

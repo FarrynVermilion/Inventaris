@@ -75,12 +75,18 @@
                         </div>
                         <div class="form-group">
                             <label>{{__(" Kondisi_awal")}}</label>
-                            <input type="text" name="Kondisi_awal" class="form-control" value="{{ old('Kondisi_awal', $edit->Kondisi_awal) }}">
-                            @include('alerts.feedback', ['field' => 'Kondisi_awal'])
+                            <select class="form-control" name="Kategori_id">
+                                <option value="Baru" {{ $edit->Kondisi_awal == 'Baru' ? 'selected' : '' }}>Baru</option>
+                                <option value="Bekas" {{ $edit->Kondisi_awal == 'Bekas' ? 'selected' : '' }}>Bekas</option>
+                            </select>
+                            @include('alerts.feedback', ['field' => 'Kondisi awal'])
                         </div>
                         <div class="form-group">
                             <label>{{__(" Status aset")}}</label>
-                            <input type="text" name="Status_aset" class="form-control" value="{{ old('Status_aset', $edit->Status_aset) }}">
+                            <select class="form-control" name="Status_aset">
+                                <option value="Tersedia" {{ $edit->Status_aset == 'Tersedia' ? 'selected' : '' }}>Tersedia</option>
+                                <option value="Tidak tersedia" {{ $edit->Status_aset == 'Tidak tersedia' ? 'selected' : '' }}>Tidak tersedia</option>
+                            </select>
                             @include('alerts.feedback', ['field' => 'Status_aset'])
                         </div>
                         <div class="form-group">

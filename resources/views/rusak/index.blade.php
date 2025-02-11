@@ -29,7 +29,7 @@
                   <th>Nama aset</th>
                   <th>Merek aset</th>
                   <th>Jumlah aset</th>
-                  <th>Stok</th>
+                  <th>Aset tersedia</th>
                   <th>Jumlah Rusak</th>
                   <th>Penanggung jawab</th>
                   <th>Kerusakan</th>

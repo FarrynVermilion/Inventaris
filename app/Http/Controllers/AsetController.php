@@ -57,7 +57,6 @@ class AsetController extends Controller
             'Spesifikasi'=>'',
             'Kondisi_awal'=>'',
             'Jml_aset'=>'min:1',
-            'Status_aset'=>'max:255',
             'COA'=>'max:255',
             'Kategori_id'=>'required',
             'Ruang_id'=>'required'
@@ -82,7 +81,7 @@ class AsetController extends Controller
             'Kondisi_awal'=>$request->Kondisi_awal,
             'Jml_aset'=>$request->Jml_aset,
             'Stok'=>$request->Jml_aset,
-            'Status_aset'=>$request->Status_aset,
+            'Status_aset'=>'Tersedia',
             'COA'=>$request->COA,
             'Kategori_id'=>$request->Kategori_id,
             'Ruang_id'=>$request->Ruang_id

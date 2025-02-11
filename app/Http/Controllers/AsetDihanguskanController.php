@@ -52,19 +52,27 @@ class AsetDihanguskanController extends Controller
             'Status_penghapusan'=>'required|max:255',
             'Jml_dihapus'=>"required|integer|min:0|max:".$jumlah,
             'Upload_File'=>'required|file|image|mimes:jpeg,png,jpg,pdf|max:2048',
+            'Upload_Foto'=>'required|file|image|mimes:jpeg,png,jpg,pdf|max:2048',
             'Aset_id'=>'required|max:255'
         ]);
         $filenameWithExt = $request->file('Upload_File')->getClientOriginalName();
-        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+        $filename = preg_replace('/[^A-Za-z0-9\-]/', '',        str_replace(' ', '-', pathinfo($filenameWithExt, PATHINFO_FILENAME)));
         $extension = $request->file('Upload_File')->getClientOriginalExtension();
         $fileNameToStore = $filename.'_'.time().'.'.$extension;
         Storage::putFileAs('',$request->file('Upload_File'),$fileNameToStore);
+
+        $fotoWithExt = $request->file('Upload_Foto')->getClientOriginalName();
+        $fotoname = preg_replace('/[^A-Za-z0-9\-]/', '',        str_replace(' ', '-', pathinfo($fotoWithExt, PATHINFO_FILENAME)));
+        $fotoextension = $request->file('Upload_Foto')->getClientOriginalExtension();
+        $fotoNameToStore = $fotoname.'_'.time().'.'.$fotoextension;
+        Storage::putFileAs('',$request->file('Upload_Foto'),$fotoNameToStore);
 
         $valHapus = Penghapusan_aset::create([
             'Tgl_penghapusan' => date('Y-m-d'),
             'Status_penghapusan' => $request->Status_penghapusan,
             'Jml_dihapus' => $request->Jml_dihapus,
             'Upload_File' => $fileNameToStore,
+            'Upload_Foto' => $fotoNameToStore,
             'Aset_id'=>str_pad($request->Aset_id, 11, '0', STR_PAD_LEFT)
         ]);
 
@@ -77,6 +85,7 @@ class AsetDihanguskanController extends Controller
         aset_dihanguskan::create($valHangus);
 
         $aset->Stok = $aset->Stok - $request->Jml_dihapus;
+        $aset->Jml_aset = $aset->Jml_aset - $request->Jml_dihapus;
         $aset->save();
 
         $text="aset dihanguskan created successfully nama file : .".$fileNameToStore;
@@ -116,6 +125,7 @@ class AsetDihanguskanController extends Controller
         $pa = Penghapusan_aset::find($ad->penghapusan_id);
         $as=Aset::find(str_pad($pa->Aset_id, 11, '0', STR_PAD_LEFT));
         $as->Stok = $as->Stok + $pa->Jml_dihapus;
+        $as->Jml_aset = $as->Jml_aset + $pa->Jml_dihapus;
         $as->save();
         Storage::delete($pa->Upload_File);
         $pa->delete();

@@ -1,6 +1,6 @@
 @extends('layouts.app', [
     'class' => 'sidebar-mini ',
-    'namePage' => ' dihanguskan',
+    'namePage' => ' penghapusan aset',
     'activePage' => 'asetDihanguskan'
 ])
 
@@ -32,6 +32,7 @@
                   <th>Status</th>
                   <th>Jumlah dihapus</th>
                   <th>File</th>
+                  <th>Foto</th>
                   <th>Nama aset</th>
                   <th class="disabled-sorting text-left">Actions</th>
                 </tr>
@@ -52,6 +53,9 @@
                                 <td>{{$pa->Jml_dihapus}}</td>
                                 <td>
                                     <a href="{!! route('download', $pa->Upload_File) !!}">{{$pa->Upload_File}}</a>
+                                </td>
+                                <td>
+                                    <a href="{!! route('download', $pa->Upload_Foto) !!}">{{$pa->Upload_Foto}}</a>
                                 </td>
                                 @foreach ($aset as $a)
                                     @if ($a->Aset_id== $pa->Aset_id)
