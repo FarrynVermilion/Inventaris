@@ -42,6 +42,18 @@
                 </div>
                 <div class="row">
                     <div class="col-md-7 pr-1">
+                        <div class="form-group">
+                            <label>Role</label>
+                            <select name="role" class="form-control {{ $errors->has('role') ? ' is-invalid' : '' }}">
+                                <option value="0">Super user</option>
+                                <option value="1" selected>User</option>
+                            </select>
+                            @include('alerts.feedback', ['field' => 'role'])
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7 pr-1">
                       <div class="form-group {{ $errors->has('password') ? ' has-danger' : '' }}">
                         <label>{{__(" Password")}}</label>
                         <input class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('Password') }}" type="password" name="password" required>

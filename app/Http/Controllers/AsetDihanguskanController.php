@@ -57,14 +57,14 @@ class AsetDihanguskanController extends Controller
         ]);
         $filenameWithExt = $request->file('Upload_File')->getClientOriginalName();
         $filename = preg_replace('/[^A-Za-z0-9\-]/', '',        str_replace(' ', '-', pathinfo($filenameWithExt, PATHINFO_FILENAME)));
-        $extension = $request->file('Upload_File')->getClientOriginalExtension();
-        $fileNameToStore = $filename.'_'.time().'.'.$extension;
+        $fileExtension = $request->file('Upload_File')->getClientOriginalExtension();
+        $fileNameToStore = $filename.'_'.time().'.'.$fileExtension;
         Storage::putFileAs('',$request->file('Upload_File'),$fileNameToStore);
 
         $fotoWithExt = $request->file('Upload_Foto')->getClientOriginalName();
         $fotoname = preg_replace('/[^A-Za-z0-9\-]/', '',        str_replace(' ', '-', pathinfo($fotoWithExt, PATHINFO_FILENAME)));
-        $fotoextension = $request->file('Upload_Foto')->getClientOriginalExtension();
-        $fotoNameToStore = $fotoname.'_'.time().'.'.$fotoextension;
+        $fotoExtension = $request->file('Upload_Foto')->getClientOriginalExtension();
+        $fotoNameToStore = $fotoname.'_'.time().'.'.$fotoExtension;
         Storage::putFileAs('',$request->file('Upload_Foto'),$fotoNameToStore);
 
         $valHapus = Penghapusan_aset::create([
@@ -128,6 +128,7 @@ class AsetDihanguskanController extends Controller
         $as->Jml_aset = $as->Jml_aset + $pa->Jml_dihapus;
         $as->save();
         Storage::delete($pa->Upload_File);
+        Storage::delete($pa->Upload_Foto);
         $pa->delete();
         $ad->delete();
         return redirect()->route('asetDihanguskan.index')->with('success', value: 'aset dihanguskan deleted successfully' );

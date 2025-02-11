@@ -11,7 +11,9 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-              <a class="btn btn-primary btn-round text-white pull-right" href="{{ route('register') }}">Add user</a>
+            @if (Auth::user()->role == 'Super_user')
+                <a class="btn btn-primary btn-round text-white pull-right" href="{{ route('register') }}">Add user</a>
+            @endif
             <h4 class="card-title">Users</h4>
             <div class="col-12 mt-2"></div>
           </div>
@@ -44,11 +46,25 @@
                             {{$user->created_at}}
                         </td>
                         <td>
-                            <form method="POST" action="{{route('user.destroy',$user->id)}}" onsubmit="return hapus()">
-                                @csrf
-                                <input name="_method" type="hidden" value="DELETE">
-                                <button type="submit" class="btn btn-danger">Hapus</button>
-                            </form>
+                            @if (Auth::user()->role == 'Super_user')
+                            <table>
+                                <tr->
+                                    <td>
+                                        <form method="GET" action="{{route('user.edit',$user->id)}}">
+                                            @csrf
+                                            <button type="submit" class="btn btn-warning">Edit</button>
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form method="POST" action="{{route('user.destroy',$user->id)}}" onsubmit="return hapus()">
+                                            @csrf
+                                            <input name="_method" type="hidden" value="DELETE">
+                                            <button type="submit" class="btn btn-danger">Hapus</button>
+                                        </form>
+                                    </td>
+                                </tr->
+                            </table>
+                            @endif
                         </td>
                     </tr>
                 @endforeach

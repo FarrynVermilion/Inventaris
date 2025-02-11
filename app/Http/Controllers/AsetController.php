@@ -126,7 +126,7 @@ class AsetController extends Controller
     {
         $request->validate([
             'Nama_Aset'=>'required|max:255',
-            'Merek_Aset'=>'required|after:date',
+            'Merek_Aset'=>'required|max:255',
             'Tipe'=>'required|max:255',
             'Model'=>'required|max:255',
             'Seri'=>'required|max:255',

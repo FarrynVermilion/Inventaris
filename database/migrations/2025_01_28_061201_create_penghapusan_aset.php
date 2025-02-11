@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string("Status_penghapusan");
             $table->integer("Jml_dihapus");
             $table->string("Upload_File");
+            $table->string("Upload_Foto");
             $table->string("Aset_id");
         });
         Schema::create('Jual_aset', function (Blueprint $table) {

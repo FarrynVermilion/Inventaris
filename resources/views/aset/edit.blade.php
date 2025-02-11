@@ -74,8 +74,8 @@
                             @include('alerts.feedback', ['field' => 'Spesifikasi'])
                         </div>
                         <div class="form-group">
-                            <label>{{__(" Kondisi_awal")}}</label>
-                            <select class="form-control" name="Kategori_id">
+                            <label>{{__(" Kondisi awal")}}</label>
+                            <select class="form-control" name="Kondisi_awal">
                                 <option value="Baru" {{ $edit->Kondisi_awal == 'Baru' ? 'selected' : '' }}>Baru</option>
                                 <option value="Bekas" {{ $edit->Kondisi_awal == 'Bekas' ? 'selected' : '' }}>Bekas</option>
                             </select>

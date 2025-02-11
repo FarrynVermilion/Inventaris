@@ -13,7 +13,7 @@
         <div class="card">
           <div class="card-header">
               <a class="btn btn-primary btn-round text-white pull-right" href="{{ route('asetDihanguskan.create') }}">Add aset dihapuskan</a>
-            <h4 class="card-title">Dihanguskan</h4>
+            <h4 class="card-title">Penghapusan</h4>
             <div class="col-12 mt-2"></div>
           </div>
           <div class="card-body">
@@ -60,7 +60,6 @@
                                 @foreach ($aset as $a)
                                     @if ($a->Aset_id== $pa->Aset_id)
                                         <td>{{$a->Nama_Aset}}</td>
-                                        <td>{{$pa->Aset_id}}</td>
                                         <td>
                                             <table>
                                                 <tr>

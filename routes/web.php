@@ -26,6 +26,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['middleware' => 'auth'], function () {
     Route::get('register', [UserController::class,'register'])->name('register');
     Route::post('createUser', [UserController::class,'create'])->name('create');
+    Route::get('user.passwordEdit/{id}', [UserController::class,'passwordEdit'])->name('user.passwordEdit');
     Route::get('user.index', [UserController::class,'index'])->name('user.index');
     Route::resource('user', UserController::class);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);

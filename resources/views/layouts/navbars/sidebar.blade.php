@@ -115,7 +115,7 @@
                 <li class="@if ($activePage == 'asetDihanguskan') active @endif">
                 <a href="{{ route('asetDihanguskan.index','icons') }}">
                     <i class="now-ui-icons education_atom"></i>
-                    <p>{{ __('Penghangusan aset') }}</p>
+                    <p>{{ __('Penghapusan aset') }}</p>
                 </a>
                 </li>
             </ul>
