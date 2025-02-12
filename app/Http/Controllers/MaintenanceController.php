@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Maintenance;
 use App\Models\Aset;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,7 +17,9 @@ class MaintenanceController extends Controller
     {
         return view('maintenance.index',[
             'maintenance'=> Maintenance::all(),
-            'aset'=>Aset::all()]);
+            'aset'=>Aset::all(),
+            'user'=>User::all()
+        ]);
     }
 
     /**

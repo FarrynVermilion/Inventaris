@@ -35,6 +35,10 @@
                   <th>Infaq</th>
                   <th>Nama aset</th>
                   <th>Merek aset</th>
+                  <th>Pembuat</th>
+                  <th>Dibuat</th>
+                  <th>Editor</th>
+                  <th>Diubah</th>
                   <th class="disabled-sorting text-left">Actions</th>
                 </tr>
               </thead>
@@ -80,6 +84,21 @@
                                         <td>
                                             {{$a->Merek_Aset}}
                                         </td>
+
+                                        @foreach ($user as $u)
+                                            @if ($u->id == $p->created_by)
+                                                <td>{{$u->name}}</td>
+                                                @break
+                                            @endif
+                                        @endforeach
+                                        <td>{{$p->created_at}}</td>
+                                        @foreach ($user as $u)
+                                            @if ($u->id == $p->updated_by)
+                                                <td>{{$u->name}}</td>
+                                                @break
+                                            @endif
+                                        @endforeach
+                                        <td>{{$p->updated_at}}</td>
                                         <td>
                                             <table>
                                               <tr>

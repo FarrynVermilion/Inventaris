@@ -26,7 +26,7 @@
             <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
               <thead>
                 <tr>
-                  <th>Tanggal dihanguskan</th>
+                  <th>Tanggal pembuatan</th>
                   <th>Deskripsi</th>
                   <th>Tanggal penghapusan</th>
                   <th>Status</th>
@@ -34,6 +34,10 @@
                   <th>File</th>
                   <th>Foto</th>
                   <th>Nama aset</th>
+                  <th>Pembuat</th>
+                  <th>Dibuat</th>
+                  <th>Editor</th>
+                  <th>Diubah</th>
                   <th class="disabled-sorting text-left">Actions</th>
                 </tr>
               </thead>
@@ -60,6 +64,20 @@
                                 @foreach ($aset as $a)
                                     @if ($a->Aset_id== $pa->Aset_id)
                                         <td>{{$a->Nama_Aset}}</td>
+                                        @foreach ($user as $u)
+                                            @if ($u->id == $pa->created_by)
+                                                <td>{{$u->name}}</td>
+                                                @break
+                                            @endif
+                                        @endforeach
+                                        <td>{{$pa->created_at}}</td>
+                                        @foreach ($user as $u)
+                                            @if ($u->id == $pa->updated_by)
+                                                <td>{{$u->name}}</td>
+                                                @break
+                                            @endif
+                                        @endforeach
+                                        <td>{{$pa->updated_at}}</td>
                                         <td>
                                             <table>
                                                 <tr>

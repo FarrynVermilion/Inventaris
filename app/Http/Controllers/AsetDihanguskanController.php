@@ -7,6 +7,7 @@ use App\Models\Aset;
 use App\Models\Penghapusan_aset;
 use App\Models\Kategori;
 use App\Models\Ruang;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use League\Flysystem\WhitespacePathNormalizer;
@@ -22,7 +23,8 @@ class AsetDihanguskanController extends Controller
         return view('asetDihanguskan.index', [
             'aset_dihanguskan' => aset_dihanguskan::all(),
             'penghapusan_aset' => Penghapusan_aset::all(),
-            'aset' => Aset::all()
+            'aset' => Aset::all(),
+            'user'=>User::all()
         ]);
     }
 

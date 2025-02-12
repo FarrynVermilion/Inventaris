@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kategori;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -13,8 +14,9 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        return view('kategori.index', [
-            'Kategori' => DB::table('Kategori')->paginate(15)
+        return view('kategori.index',[
+            'Kategori'=>Kategori::all(),
+            'user'=>User::all()
         ]);
     }
 

@@ -6,6 +6,7 @@ use App\Models\Peminjaman;
 use App\Models\Detil_pinjam;
 use App\Models\Peminjam;
 use App\Models\Aset;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -22,7 +23,8 @@ class PeminjamanController extends Controller
             'peminjaman' => $peminjaman,
             'detil_pinjam' => Detil_pinjam::all(),
             'peminjam' => Peminjam::all(),
-            'aset' => Aset::all()
+            'aset' => Aset::all(),
+            'user' => User::all()
         ]);
     }
 

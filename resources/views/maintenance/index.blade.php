@@ -33,6 +33,10 @@
                   <th>Nama teknisi</th>
                   <th>Nama aset</th>
                   <th>Jumlah</th>
+                  <th>Pembuat</th>
+                  <th>Dibuat</th>
+                  <th>Editor</th>
+                  <th>Diubah</th>
                   <th class="disabled-sorting text-left">Actions</th>
                 </tr>
               </thead>
@@ -68,6 +72,21 @@
                         <td>
                             {{$m->Jumlah}}
                         </td>
+
+                        @foreach ($user as $u)
+                            @if ($u->id == $m->created_by)
+                                <td>{{$u->name}}</td>
+                                @break
+                            @endif
+                        @endforeach
+                        <td>{{$m->created_at}}</td>
+                        @foreach ($user as $u)
+                            @if ($u->id == $m->updated_by)
+                                <td>{{$u->name}}</td>
+                                @break
+                            @endif
+                        @endforeach
+                        <td>{{$m->updated_at}}</td>
                         <td>
                           <table>
                             <tr>

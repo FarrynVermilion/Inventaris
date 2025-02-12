@@ -149,6 +149,60 @@
                 </div>
                 <div class="col-md-7 pr-1">
                     <div class="form-group">
+                        <label>{{__(" Keterangan pembuat")}}</label>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID Pembuat</th>
+                                    <th>Nama Pembuat</th>
+                                    <th>Waktu pembuatan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{ $Aset->created_by }}</td>
+                                    @foreach ($user as $u)
+                                        @if ( $Aset->created_by==$u->id)
+                                            <td>{{$u->name}}</td>
+                                            <td>{{$Aset->created_at}}</td>
+                                            @break
+                                        @endif
+                                    @endforeach
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-7 pr-1">
+                    <div class="form-group">
+                        <label>{{__(" Terakhir update oleh")}}</label>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID Pengupdate</th>
+                                    <th>Nama Pengupdate</th>
+                                    <th>Waktu Pengupdate</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{ $Aset->updated_by }}</td>
+                                    @foreach ($user as $u)
+                                        @if ( $Aset->updated_by==$u->id)
+                                            <td>{{$u->name}}</td>
+                                            <td>{{$Aset->created_at}}</td>
+                                            @break
+                                        @endif
+                                    @endforeach
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+                <div class="col-md-7 pr-1">
+                    <div class="form-group">
                         <a href="{{ url()->previous() }}" class="btn btn-primary">{{__('Kembali')}}</a>
                     </div>
                 </div>

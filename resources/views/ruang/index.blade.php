@@ -28,6 +28,10 @@
                   <th>ID</th>
                   <th>Nama</th>
                   <th>Lokasi</th>
+                  <th>Pembuat</th>
+                  <th>Dibuat</th>
+                  <th>Editor</th>
+                  <th>Diubah</th>
                   <th class="disabled-sorting text-left">Actions</th>
                 </tr>
               </thead>
@@ -43,6 +47,20 @@
                         <td>
                             {{$r->Lokasi}}
                         </td>
+                        @foreach ($user as $u)
+                            @if ($u->id == $r->created_by)
+                                <td>{{$u->name}}</td>
+                                @break
+                            @endif
+                        @endforeach
+                        <td>{{$r->created_at}}</td>
+                        @foreach ($user as $u)
+                            @if ($u->id == $r->updated_by)
+                                <td>{{$u->name}}</td>
+                                @break
+                            @endif
+                        @endforeach
+                        <td>{{$r->updated_at}}</td>
                         <td>
                             <table>
                                 <tr>

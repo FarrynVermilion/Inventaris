@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Penggunaan;
 use App\Models\Aset;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class PenggunaanController extends Controller
@@ -15,7 +16,8 @@ class PenggunaanController extends Controller
     {
         return view('penggunaan.index',[
             'aset'=>Aset::all(),
-            'penggunaan'=>Penggunaan::all()
+            'penggunaan'=>Penggunaan::all(),
+            'user'=>User::all()
         ]);
     }
 

@@ -8,6 +8,7 @@ use App\Models\Peminjaman;
 use App\Models\Detil_pinjam;
 use App\Models\Aset;
 use App\Models\Peminjam;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -24,7 +25,8 @@ class PengembalianController extends Controller
             'peminjaman'=>peminjaman::all(),
             'detil_pinjam'=>Detil_pinjam::all(),
             'aset'=>aset::all(),
-            'peminjam'=>peminjam::all()
+            'peminjam'=>peminjam::all(),
+            'user'=>User::all()
         ]);
     }
 

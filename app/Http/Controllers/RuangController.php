@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ruang;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,7 +15,8 @@ class RuangController extends Controller
     public function index()
     {
         return view('ruang.index', [
-            'Ruang' => DB::table('Ruang')->paginate(15)
+            'Ruang' => Ruang::all(),
+            'user'=>User::all()
         ]);
     }
 

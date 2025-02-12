@@ -8,7 +8,7 @@
 </div>
   <div class="content">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-30">
         <div class="card">
           <div class="card-header">
             <a class="btn btn-primary btn-round text-white pull-right" href="{{ route('pengembalian.create') }}">Add pengembalian</a>
@@ -26,6 +26,10 @@
               <thead>
                 <tr>
                   <th>ID</th>
+                  <th>Pembuat</th>
+                  <th>Dibuat</th>
+                  <th>Editor</th>
+                  <th>Diubah</th>
                   <th>Terima</th>
                   <th>Status kembali</th>
                   <th>Kembali</th>
@@ -46,9 +50,23 @@
                         <td>
                             {{$p->Kembali_id}}
                         </td>
+                        @foreach ($user as $u)
+                            @if ($u->id == $p->created_by)
+                                <td>{{$u->name}}</td>
+                                @break
+                            @endif
+                        @endforeach
+                        <td>{{$p->created_at}}</td>
+                        @foreach ($user as $u)
+                            @if ($u->id == $p->updated_by)
+                                <td>{{$u->name}}</td>
+                                @break
+                            @endif
+                        @endforeach
+                        <td>{{$p->updated_at}}</td>
+                        <td>{{$p->Penerima}}</td>
                         @foreach ($detil_kembali as $dk)
                             @if ($dk->Kembali_id==$p->Kembali_id)
-                                <td>{{$dk->Penerima}}</td>
                                 <td>
                                     {{$dk->Status_kembali}}
                                 </td>
@@ -89,6 +107,7 @@
                                                 @break
                                             @endif
                                         @endforeach
+
                                         @foreach ($aset as $a)
                                         @if ($dp->Aset_id == $a->Aset_id)
                                             <td>

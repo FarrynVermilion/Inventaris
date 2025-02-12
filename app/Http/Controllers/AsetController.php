@@ -12,6 +12,7 @@ use App\Models\Maintenance;
 
 use App\Models\Ruang;
 use App\Models\Kategori;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -98,7 +99,8 @@ class AsetController extends Controller
         return view('aset.show', [
             'Aset' => $aset,
             'Ruang' => Ruang::all(),
-            'Kategori' => Kategori::all()
+            'Kategori' => Kategori::all(),
+            'user'=>User::all(),
             // 'Penghapusan_aset' => Penghapusan_aset::where('Aset_id', $aset->Aset_id)->get(),
             // 'Penyusutan' => Penyusutan::where('Aset_id', $aset->Aset_id)->get(),
             // 'Jual_aset' => Jual_aset::where('Aset_id', $aset->Aset_id)->get(),

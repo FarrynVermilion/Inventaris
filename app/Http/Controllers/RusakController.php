@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Rusak;
 use App\Models\Aset;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class RusakController extends Controller
@@ -15,7 +16,8 @@ class RusakController extends Controller
     {
         return view('rusak.index',[
             'rusak'=>Rusak::all(),
-            'aset'=>Aset::all()
+            'aset'=>Aset::all(),
+            'user'=>User::all()
         ]);
     }
 
