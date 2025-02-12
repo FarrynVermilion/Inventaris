@@ -1,6 +1,6 @@
 @extends('layouts.app', [
     'class' => 'sidebar-mini ',
-    'namePage' => 'ruang',
+    'namePage' => 'Lokasi',
     'activePage' => 'ruang'
 ])
 @section('content')
@@ -11,8 +11,8 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-              <a class="btn btn-primary btn-round text-white pull-right" href="{{ route('ruang.create') }}">Add ruangan</a>
-            <h4 class="card-title">Ruangan</h4>
+              <a class="btn btn-primary btn-round text-white pull-right" href="{{ route('ruang.create') }}">Add Lokasi</a>
+            <h4 class="card-title">Lokasi</h4>
             <div class="col-12 mt-2"></div>
           </div>
           <div class="card-body">

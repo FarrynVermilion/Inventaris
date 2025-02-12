@@ -21,6 +21,10 @@ return new class extends Migration
             $table->date("Tahun_skrg");
             $table->integer("Umur_ekonomis");
             $table->string("Aset_id");
+            $table->string("created_by")->nullable();
+            $table->timestamp('created_at')->nullable();
+            $table->string("updated_by")->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 

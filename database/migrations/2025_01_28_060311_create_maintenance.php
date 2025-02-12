@@ -20,12 +20,20 @@ return new class extends Migration
             $table->string("Nm_teknisi");
             $table->string("Aset_id");
             $table->integer("Jumlah");
+            $table->string("created_by")->nullable();
+            $table->timestamp('created_at')->nullable();
+            $table->string("updated_by")->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
         Schema::create('Penggunaan', function (Blueprint $table) {
             $table->integerIncrements("Penggunaan_id")->primary();
             $table->string("Aset_id");
             $table->string("Untuk");
             $table->integer("Jumlah");
+            $table->string("created_by")->nullable();
+            $table->timestamp('created_at')->nullable();
+            $table->string("updated_by")->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
         Schema::create('Rusak', function (Blueprint $table) {
             $table->integerIncrements("Rusak_id")->primary();
@@ -33,6 +41,10 @@ return new class extends Migration
             $table->string("Kerusakan");
             $table->string("Penanggung_jawab");
             $table->integer("Jumlah");
+            $table->string("created_by")->nullable();
+            $table->timestamp('created_at')->nullable();
+            $table->string("updated_by")->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 

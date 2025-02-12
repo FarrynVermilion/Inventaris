@@ -124,12 +124,12 @@
                 </div>
                 <div class="col-md-7 pr-1">
                     <div class="form-group">
-                        <label>{{__(" Ruang")}}</label>
+                        <label>{{__(" Lokasi")}}</label>
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>ID Ruang</th>
-                                    <th>Nama Ruang</th>
+                                    <th>ID Lokasi</th>
+                                    <th>Nama Lokasi</th>
                                     <th>Lokasi</th>
                                 </tr>
                             </thead>

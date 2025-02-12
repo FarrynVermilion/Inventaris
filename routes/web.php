@@ -43,6 +43,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('rusakPDF',[PDFController::class,'rusakPDF'])->name('rusakPDF');
     Route::get('musnahPDF',[PDFController::class,'musnahPDF'])->name('musnahPDF');
     Route::get('user.index', [UserController::class,'index'])->name('user.index');
+
     Route::get('register', [UserController::class,'register'])->name('register')->middleware('user-access:Super_user');
     Route::post('createUser', [UserController::class,'create'])->name('create')->middleware('user-access:Super_user');
     Route::get('user.passwordEdit/{id}', [UserController::class,'passwordEdit'])->name('user.passwordEdit')->middleware('user-access:Super_user');

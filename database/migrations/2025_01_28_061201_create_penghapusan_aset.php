@@ -19,6 +19,10 @@ return new class extends Migration
             $table->string("Upload_File");
             $table->string("Upload_Foto");
             $table->string("Aset_id");
+            $table->string("created_by")->nullable();
+            $table->timestamp('created_at')->nullable();
+            $table->string("updated_by")->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
         Schema::create('Jual_aset', function (Blueprint $table) {
             $table->integerIncrements("penjualan_id")->primary();
@@ -26,12 +30,20 @@ return new class extends Migration
             $table->integer("Harga_jual");
             $table->string("Deskripsi");
             $table->integer("penghapusain_id");
+            $table->string("created_by")->nullable();
+            $table->timestamp('created_at')->nullable();
+            $table->string("updated_by")->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
         Schema::create('aset_dihanguskan', function (Blueprint $table) {
             $table->integerIncrements("dihanguskan_id")->primary();
             $table->date("Tgl_dihanguskan");
             $table->string("Deskripsi");
             $table->integer("penghapusan_id");
+            $table->string("created_by")->nullable();
+            $table->timestamp('created_at')->nullable();
+            $table->string("updated_by")->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 

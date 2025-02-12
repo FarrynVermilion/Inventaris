@@ -1,6 +1,6 @@
 @extends('layouts.app', [
     'class' => 'sidebar-mini ',
-    'namePage' => 'Edit Ruang',
+    'namePage' => 'Edit Lokasi',
     'activePage' => 'ruang',
     'activeNav' => '',
 ])
@@ -11,7 +11,7 @@
       <div class="col-md-8">
         <div class="card">
           <div class="card-header">
-            <h5 class="title">{{__(" Edit Ruang")}}</h5>
+            <h5 class="title">{{__(" Edit Lokasi")}}</h5>
           </div>
           <div class="card-body">
             <form method="post" action="{{ route('ruang.update',$edit->Ruang_id) }}" autocomplete="off" enctype="multipart/form-data">

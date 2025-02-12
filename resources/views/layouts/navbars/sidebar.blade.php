@@ -64,7 +64,7 @@
                 <li class="@if ($activePage == 'ruang') active @endif">
                     <a href="{{ route('ruang.index','icons') }}">
                         <i class="now-ui-icons education_atom"></i>
-                        <p>{{ __('Ruang') }}</p>
+                        <p>{{ __('Lokasi') }}</p>
                     </a>
                   </li>
                   <li class="@if ($activePage == 'kategori') active @endif">

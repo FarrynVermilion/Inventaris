@@ -31,7 +31,7 @@
                   <th>Jumlah aset</th>
                   <th>Aset tersedia</th>
                   <th>Kategori</th>
-                  <th>Ruang</th>
+                  <th>Lokasi</th>
                   <th class="disabled-sorting text-left">Actions</th>
                 </tr>
               </thead>

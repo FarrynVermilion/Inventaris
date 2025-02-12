@@ -101,8 +101,8 @@
                     <th>Jumlah aset</th>
                     <th>Status aset</th>
                     <th>COA</th>
-                    <th>ID Ruang</th>
-                    <th>Nama ruang</th>
+                    <th>ID Lokasi</th>
+                    <th>Nama Lokasi</th>
                     <th>Lokasi</th>
                     <th>ID Kategori</th>
                     <th>Nama Kategori</th>

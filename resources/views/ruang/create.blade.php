@@ -1,6 +1,6 @@
 @extends('layouts.app', [
     'class' => 'sidebar-mini ',
-    'namePage' => 'create ruang',
+    'namePage' => 'create lokasi',
     'activePage' => 'ruang'
 ])
 @section('content')
@@ -11,7 +11,7 @@
       <div class="col-md-8">
         <div class="card">
           <div class="card-header">
-            <h5 class="title">{{__(" Create Ruang")}}</h5>
+            <h5 class="title">{{__(" Create Lokasi")}}</h5>
           </div>
           <div class="card-body">
             <form method="post" action="{{ route('ruang.store') }}" autocomplete="off" enctype="multipart/form-data">

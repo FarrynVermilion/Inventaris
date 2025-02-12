@@ -34,7 +34,7 @@
                                             Model : {{$a->Model}} |
                                             Seri : {{$a->Seri}} |
                                             Aset tersedia : {{$a->Stok}} |
-                                            Ruang :
+                                            Lokasi :
                                             @foreach ( $ruang as $r)
                                                 @if ($r->Ruang_id == $a->Ruang_id)
                                                     {{$r->Nm_ruang}} |

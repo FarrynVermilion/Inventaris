@@ -29,15 +29,27 @@ return new class extends Migration
             $table->string("COA");
             $table->integer("Kategori_id");
             $table->integer("Ruang_id");
+            $table->string("created_by")->nullable();
+            $table->timestamp('created_at')->nullable();
+            $table->string("updated_by")->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
         Schema::create('Kategori', function (Blueprint $table) {
             $table->integerIncrements("Kategori_id")->primary();
             $table->string("Nama_kategori");
+            $table->string("created_by")->nullable();
+            $table->timestamp('created_at')->nullable();
+            $table->string("updated_by")->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
         Schema::create('Ruang', function (Blueprint $table) {
             $table->integerIncrements("Ruang_id")->primary();
             $table->string("Nm_ruang");
             $table->string("Lokasi");
+            $table->string("created_by")->nullable();
+            $table->timestamp('created_at')->nullable();
+            $table->string("updated_by")->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 

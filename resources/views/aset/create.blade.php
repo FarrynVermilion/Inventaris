@@ -132,14 +132,14 @@
                     </div>
                     <div class="col-md-7 pr-1">
                         <div class="form-group">
-                            <label>{{__(" Ruang")}}</label>
+                            <label>{{__(" Lokasi")}}</label>
                             <select name="Ruang_id" class="form-control {{ $errors->has('Ruang_id') ? ' is-invalid' : '' }}">
                                 @foreach ($Ruang as $r)
                                     <option value="{{$r->Ruang_id }}"
                                         @if ( old('Ruang_id')==$r->Ruang_id)
                                             selected
                                         @endif
-                                        >Nama ruang : {{$r->Nm_ruang}} <br> lokasi : {{$r->Lokasi}}</option>
+                                        >Nama lokasi : {{$r->Nm_ruang}} <br> lokasi : {{$r->Lokasi}}</option>
                                 @endforeach
                               </select>
                             @include('alerts.feedback', ['field' => 'Ruang_id'])
