@@ -6,6 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <div>Hello</div>
+    <div>Hello {{$user->name}}</div>
+    <div>Berikut adalah link untuk reset password</div>
+    <div></div>
 </body>
 </html>

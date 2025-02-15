@@ -8,7 +8,8 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
-
+use App\Models\User;
+//this is unused
 class forgotPasswordMail extends Mailable
 {
     use Queueable, SerializesModels;
@@ -16,7 +17,7 @@ class forgotPasswordMail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct(private User $data)
     {
         //
     }
@@ -37,7 +38,10 @@ class forgotPasswordMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'views.mail.forgotPasswordMail',
+            view: 'mail.forgotPasswordMail',
+            with: [
+                'user' => $this->data,
+            ]
         );
     }
 
