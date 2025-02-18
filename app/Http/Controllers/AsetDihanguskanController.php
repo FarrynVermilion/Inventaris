@@ -70,7 +70,6 @@ class AsetDihanguskanController extends Controller
         Storage::putFileAs('',$request->file('Upload_Foto'),$fotoNameToStore);
 
         $valHapus = Penghapusan_aset::create([
-            'Tgl_penghapusan' => date('Y-m-d'),
             'Status_penghapusan' => $request->Status_penghapusan,
             'Jml_dihapus' => $request->Jml_dihapus,
             'Upload_File' => $fileNameToStore,
@@ -129,8 +128,8 @@ class AsetDihanguskanController extends Controller
         $as->Stok = $as->Stok + $pa->Jml_dihapus;
         $as->Jml_aset = $as->Jml_aset + $pa->Jml_dihapus;
         $as->save();
-        Storage::delete($pa->Upload_File);
-        Storage::delete($pa->Upload_Foto);
+        // Storage::delete($pa->Upload_File);
+        // Storage::delete($pa->Upload_Foto);
         $pa->delete();
         $ad->delete();
         return redirect()->route('asetDihanguskan.index')->with('success', value: 'aset dihanguskan deleted successfully' );

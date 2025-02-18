@@ -4,9 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Prunable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class aset_dihanguskan extends Model
 {
+    use HasFactory, SoftDeletes, Prunable;
+    public function prunable()
+    {
+        return static::withTrashed()
+        ->whereNotNull("deleted_at");
+    }
     protected $table = 'aset_dihanguskan';
     protected $primaryKey = 'dihanguskan_id';
 
@@ -34,6 +43,14 @@ class aset_dihanguskan extends Model
         static::updating(function ($model) {
             if (!$model->isDirty('updated_by')) {
                 $model->updated_by = Auth::user()->id;
+            }
+        });
+
+        // creating deleted_by when model is deleted
+        static::deleting(function ($model) {
+            if (!$model->isDirty('deleted_by')) {
+                $model->deleted_by = Auth::user()->id;
+                $model->save();
             }
         });
     }

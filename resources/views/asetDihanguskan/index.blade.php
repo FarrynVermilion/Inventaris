@@ -26,9 +26,9 @@
             <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
               <thead>
                 <tr>
-                  <th>Tanggal pembuatan</th>
+                  <th>ID</th>
                   <th>Deskripsi</th>
-                  <th>Tanggal penghapusan</th>
+                  <th>Tanggal dibuang</th>
                   <th>Status</th>
                   <th>Jumlah dihapus</th>
                   <th>File</th>
@@ -44,15 +44,13 @@
               <tbody>
                 @foreach ($aset_dihanguskan as $ad)
                     <tr>
-                        <td>
-                            {{$ad->Tgl_dihanguskan}}
-                        </td>
-                        <td>
-                            {{$ad->Deskripsi}}
-                        </td>
                         @foreach ($penghapusan_aset as $pa)
                             @if ($pa->penghapusan_id == $ad->penghapusan_id)
-                                <td>{{$pa->Tgl_penghapusan}}</td>
+                                <td>{{$ad->penghapusan_id}}</td>
+                                <td>
+                                    {{$ad->Deskripsi}}
+                                </td>
+                                <td>{{$ad->Tgl_dihanguskan}}</td>
                                 <td>{{$pa->Status_penghapusan	}}</td>
                                 <td>{{$pa->Jml_dihapus}}</td>
                                 <td>

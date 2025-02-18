@@ -109,7 +109,7 @@
                 <div class="row">
                     <div class="col-md-7 pr-1">
                         <div class="form-group">
-                            <label>{{__(" Tanggal dihanguskan")}}</label>
+                            <label>{{__(" Tanggal dibuang")}}</label>
                             <input type="date" name="Tgl_dihanguskan" class="form-control {{ $errors->has('Tgl_dihanguskan') ? ' is-invalid' : '' }}" placeholder="Tanggal dihanguskan" value="{{ old('Tgl_dihanguskan') }}">
                             @include('alerts.feedback', ['field' => 'Tgl_dihanguskan'])
                         </div>

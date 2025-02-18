@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('Penghapusan_aset', function (Blueprint $table) {
             $table->integerIncrements("penghapusan_id")->primary();
-            $table->date("Tgl_penghapusan");
             $table->string("Status_penghapusan");
             $table->integer("Jml_dihapus");
             $table->string("Upload_File");
@@ -23,6 +22,8 @@ return new class extends Migration
             $table->timestamp('created_at')->nullable();
             $table->string("updated_by")->nullable();
             $table->timestamp('updated_at')->nullable();
+            $table->string('deleted_by')->nullable();
+            $table->timestamp('deleted_at')->nullable();
         });
         Schema::create('Jual_aset', function (Blueprint $table) {
             $table->integerIncrements("penjualan_id")->primary();
@@ -44,6 +45,8 @@ return new class extends Migration
             $table->timestamp('created_at')->nullable();
             $table->string("updated_by")->nullable();
             $table->timestamp('updated_at')->nullable();
+            $table->string('deleted_by')->nullable();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 
