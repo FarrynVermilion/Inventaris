@@ -20,11 +20,12 @@
               @include('alerts.success')
               <div class="row">
               </div>
-                <div class="row"><div class="col-md-7 pr-1">
-                <div class="form-group">
+                <div class="row">
+                    <div class="col-md-7 pr-1">
+                        <div class="form-group">
                             <label>{{__(" Nama aset")}}</label>
-                                <input type="text" name="Nama_Aset" class="form-control {{ $errors->has('Nama_Aset') ? ' is-invalid' : '' }}" placeholder="Nama Aset" value="{{ old('Nama_Aset') }}">
-                                @include('alerts.feedback', ['field' => 'Nama_Aset'])
+                            <input type="text" name="Nama_Aset" class="form-control {{ $errors->has('Nama_Aset') ? ' is-invalid' : '' }}" placeholder="Nama Aset" value="{{ old('Nama_Aset') }}">
+                            @include('alerts.feedback', ['field' => 'Nama_Aset'])
                         </div>
                     </div>
                 </div>
