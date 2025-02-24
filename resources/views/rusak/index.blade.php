@@ -70,7 +70,7 @@
                                     {{$r->Keruskan}}
                                 </td>
                                 @foreach ($user as $u)
-                                    @if ($u->id == $argc->created_by)
+                                    @if ($u->id == $a->created_by)
                                         <td>{{$u->name}}</td>
                                         @break
                                     @endif

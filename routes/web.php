@@ -35,7 +35,6 @@ Route::post('/forgotPassword', [forgotPasswordController::class,'forgotPassword'
 Route::get('/resetPasswordForm/{token}', [forgotPasswordController::class,'resetPasswordForm'])->name('resetPasswordForm');
 Route::post('/resetPassword', [forgotPasswordController::class,'resetPassword']);
 
-
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::group(['middleware' => 'auth'], function () {

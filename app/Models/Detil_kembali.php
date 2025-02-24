@@ -12,8 +12,7 @@ class Detil_kembali extends Model
     protected $fillable = [
         'Aset_id',
         'Jml_kembali',
-        'Status_kembali',
-        'Penerima'
+        'Status_kembali'
     ];
     public function aset()
     {
